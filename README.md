@@ -12,7 +12,150 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 ## **🚀 How to Use**
 
 1. Drag and Drop Installation:  
-   The easiest way to install is to drag the following link directly into your browser's bookmarks bar (sometimes called "Favorites Bar" or "Bookmarks Toolbar"):
+   The easiest way to install is to [drag the following link](function createHighlightStyles() {
+    if (document.getElementById(styleId)) return;
+
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.textContent = `
+        .${hiddenClass} {
+            background-color: #f0f0f0 !important; /* Light gray */
+            border: 1px dashed #999 !important; /* Darker gray dashed border */
+            outline: 2px dashed #999 !important; /* Outline for better visibility */
+        }
+        .${alteredClass} {
+            background-color: #fffacd !important; /* Lemon chiffon */
+            border: 1px solid #da0 !important; /* Orange solid border */
+            outline: 2px solid #da0 !important; /* Outline for better visibility */
+        }
+        #${buttonId} {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 99999;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        #${buttonId}:hover {
+            opacity: 1;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+function removeHighlightStyles() {
+    const style = document.getElementById(styleId);
+    if (style) {
+        style.remove();
+    }
+}
+
+function removeHighlightClasses() {
+    document.querySelectorAll(`.${hiddenClass}, .${alteredClass}`).forEach(el => {
+        el.classList.remove(hiddenClass, alteredClass);
+    });
+}
+
+function applyHighlighting() {
+    const printRules = [];
+
+    function extractRules(sheet) {
+        try {
+            if (sheet.cssRules) {
+                Array.from(sheet.cssRules).forEach(rule => {
+                    if (rule.type === CSSRule.MEDIA_RULE && rule.media.mediaText.includes('print')) {
+                        Array.from(rule.cssRules).forEach(printRule => {
+                            printRules.push(printRule);
+                        });
+                    } else if (rule.type === CSSRule.STYLE_RULE) {
+                        if (sheet.media && sheet.media.mediaText.includes('print')) {
+                            printRules.push(rule);
+                        }
+                    } else if (rule.type === CSSRule.IMPORT_RULE) {
+                        extractRules(rule.styleSheet);
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn('Could not read stylesheet:', sheet.href || 'inline style', e);
+        }
+    }
+
+    Array.from(document.styleSheets).forEach(sheet => {
+        extractRules(sheet);
+    });
+
+    printRules.forEach(rule => {
+        if (rule.selectorText) {
+            try {
+                document.querySelectorAll(rule.selectorText).forEach(el => {
+                    if (rule.style.display === 'none') {
+                        el.classList.add(hiddenClass);
+                    } else {
+                        if (Object.keys(rule.style).length > 0) {
+                            el.classList.add(alteredClass);
+                        }
+                    }
+                });
+            } catch (e) {
+                console.warn('Invalid selector:', rule.selectorText, e);
+            }
+        }
+    });
+
+    const commonHiddenSelectors = [
+        'nav', '.navbar', '#header', '#footer', '.sidebar', '.menu',
+        '.ad', '.ads', '.no-print', '[data-print="hidden"]'
+    ];
+    commonHiddenSelectors.forEach(selector => {
+        try {
+            document.querySelectorAll(selector).forEach(el => {
+                if (!el.classList.contains(hiddenClass) && getComputedStyle(el).display === 'none') {
+                     el.classList.add(hiddenClass);
+                }
+            });
+        } catch (e) {
+            console.warn('Invalid common hidden selector:', selector, e);
+        }
+    });
+}
+
+function setupToggleButton() {
+    let button = document.getElementById(buttonId);
+    if (!button) {
+        button = document.createElement('button');
+        button.id = buttonId;
+        button.textContent = 'Toggle Print Highlights';
+        document.body.appendChild(button);
+
+        let isActive = false;
+        button.onclick = function() {
+            if (isActive) {
+                removeHighlightClasses();
+                button.textContent = 'Toggle Print Highlights (Off)';
+            } else {
+                applyHighlighting();
+                button.textContent = 'Toggle Print Highlights (On)';
+            }
+            isActive = !isActive;
+        };
+    }
+}
+
+createHighlightStyles();
+setupToggleButton();
+removeHighlightClasses();
+document.getElementById(buttonId).textContent = 'Toggle Print Highlights (Off)';
+
+})();) directly into your browser's bookmarks bar (sometimes called "Favorites Bar" or "Bookmarks Toolbar"):
    
 ```
    function createHighlightStyles() {  
