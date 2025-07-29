@@ -12,7 +12,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 ## **🚀 How to Use**
 
 1. Drag and Drop Installation:  
-   The easiest way to install is to [drag the following link](function createHighlightStyles() {
+   The easiest way to install is to [drag the following link](javascript:function createHighlightStyles() {
     if (document.getElementById(styleId)) return;
 
     const style = document.createElement('style');
