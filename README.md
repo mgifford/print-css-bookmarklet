@@ -161,7 +161,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
         removeHighlightClasses();
         document.getElementById(buttonId).textContent = 'Toggle Print Highlights (Off)';
 
-    })();)();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
+    })();)" title="Drag this to your bookmarks bar!">Print Highlighter</a>
 
 
    * **Tip for Mobile/Manual Install:** If the drag-and-drop doesn't work (e.g., on some mobile browsers or if you prefer manual setup), follow these steps:  
