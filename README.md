@@ -12,7 +12,9 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 ## **🚀 How to Use**
 
 1. Drag and Drop Installation:  
-   The easiest way to install is to drag the following link directly into your browser's bookmarks bar (sometimes called "Favorites Bar" or "Bookmarks Toolbar"):  
+   The easiest way to install is to drag the following link directly into your browser's bookmarks bar (sometimes called "Favorites Bar" or "Bookmarks Toolbar"):
+   
+```
    function createHighlightStyles() {  
    if (document.getElementById(styleId)) return;
 
@@ -312,9 +314,10 @@ A simple browser bookmarklet to help developers and designers quickly identify e
             document.getElementById(buttonId).textContent \= 'Toggle Print Highlights (Off)';
 
         })();
+```
 
-2. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
-3. **Toggle:** A button will appear in the top-right corner of the page. Click it to activate the highlighting. Click it again to turn it off.
+3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
+4. **Toggle:** A button will appear in the top-right corner of the page. Click it to activate the highlighting. Click it again to turn it off.
 
 ## **⚠️ Limitations & Notes**
 
