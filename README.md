@@ -51,9 +51,6 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 - https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/
 - https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102
 
-
-
-
 **How to use this README on GitHub:**
 
 1. Create a new repository on GitHub (e.g., print-highlighter-bookmarklet).  
@@ -61,5 +58,33 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 3. Copy and paste the entire content above into your README.md file.  
 4. Commit the changes.
 
-Now, when someone visits your GitHub repository, they'll see this README, and they can easily drag the "Print Highlighter" link to their bookmarks bar\!
+Now, when someone visits your GitHub repository, they'll see this README, and they can easily drag the "Print Highlighter" link to their bookmarks bar!
 
+
+## 🖨️ Live Print CSS Demo
+
+<style>
+  .no-print-demo { color: #b00; font-weight: bold; }
+  .print-different-demo { color: #333; font-size: 1.2em; }
+  .print-only-demo { display: none; }
+  @media print {
+    .no-print-demo { display: none !important; }
+    .print-different-demo {
+      color: #007700 !important;
+      font-size: 2em !important;
+      font-weight: bold !important;
+    }
+    .print-only-demo {
+      display: block !important;
+      color: #b00 !important;
+      font-style: italic !important;
+      font-size: 1.5em !important;
+    }
+  }
+</style>
+
+<div class="no-print-demo">This message will NOT appear when you print this page.</div>
+<div class="print-different-demo">This text changes color and size when printed.</div>
+<div class="print-only-demo">This message ONLY appears in print view.</div>
+
+<p style="font-size:0.95em;color:#666;">Tip: Use your browser's <b>Print Preview</b> to see the effect of these styles.</p>
