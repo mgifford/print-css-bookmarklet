@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printed CSS Library Demo</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/AlexDawsonUK/Printed/master/printed.css">
+    <style>
+        /* Basic styling for readability of the demo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .demo-box {
+            background-color: #fff;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .page-break-indicator {
+            border-top: 2px dashed red;
+            margin-top: 30px;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: red;
+        }
+        .column {
+            background-color: #e6ffe6;
+            padding: 10px;
+            border: 1px solid #aaffaa;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Printed CSS Library Demo</h1>
+    <p>This page demonstrates various use cases of the "Printed" CSS Library for print-friendly layouts. Try printing this page or saving it as a PDF to see the effects.</p>
+
+    <section>
+        <h2>1. Text-Only Mode (Simulated via `data-theme="print-min"`)</h2>
+        <p>This section shows content that would be present in a typical layout. When `data-theme="print-min"` is applied to the `<html>` tag (e.g., for print), non-essential elements might be hidden, leaving primarily text.</p>
+        <div class="demo-box">
+            <p>This paragraph should be visible in text-only mode.</p>
+            <p class="hide">This paragraph has the `hide` class and should be hidden when printed if the library is active.</p>
+            <p class="show">This paragraph has the `show` class, ensuring it's visible even if other things are hidden.</p>
+        </div>
+        <p><em>Note: For a true "text-only" demo, you'd apply `data-theme="print-min"` to the `<html>` tag.</em></p>
+    </section>
+
+    <section>
+        <h2>2. Advanced URL Pseudo & MIME Support</h2>
+        <p>The library provides advanced styling for URLs and MIME types. For instance, URLs might display their `href` value next to the link when printed, or specific file types might have icons.</p>
+        <div class="demo-box">
+            <p>Visit our <a href="https://example.com/docs/document.pdf">PDF Document</a> or learn more from <a href="https://www.google.com">Google</a>.</p>
+            <p>Download this <a href="data:application/zip;base64,UEsDBAoAAAAAAGQAAAAAAAAAAAAAAAAFAAAAZGVtbw9QSwECFAAKAAAAAABkAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAGRlbbxQSwUGAAAAAAEAAQBOAAAAAAA=">dummy ZIP file</a>.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Adding Page Breaks</h2>
+        <p>The library allows control over page breaks in print.</p>
+        <div class="demo-box">
+            <h3>Content Before Page Break</h3>
+            <p>This content should appear before the page break.</p>
+        </div>
+        <div class="page-break-indicator">-- Page Break After This Point --</div>
+        <div class="page-break"></div> <div class="demo-box">
+            <h3>Content After Page Break</h3>
+            <p>This content should appear on a new page when printed.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Content Visibility Control (`.hide` and `.show`)</h2>
+        <p>Control what content appears or disappears when printed.</p>
+        <div class="demo-box">
+            <p>This paragraph is visible by default.</p>
+            <p class="hide">This paragraph should be hidden in print.</p>
+            <div class="hide">
+                <p>This entire div and its content should also be hidden in print.</p>
+                <ul>
+                    <li>Hidden item 1</li>
+                    <li>Hidden item 2</li>
+                </ul>
+            </div>
+            <p class="show">This paragraph should always be shown, even if its parent is hidden (though context matters).</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Image Filtering</h2>
+        <p>Apply various CSS3 image filters for print optimization. The filters are applied by adding the respective class to the `<img>` tag.</p>
+        <div class="demo-box">
+            <p>Original Image:</p>
+            <img src="https://via.placeholder.com/150/F0F0F0/000000?text=Original" alt="Original Image">
+
+            <p>Blur Filter (`.blur`):</p>
+            <img class="blur" src="https://via.placeholder.com/150/F0F0F0/000000?text=Blur" alt="Blurred Image">
+
+            <p>Brightness Filter (`.brightness`):</p>
+            <img class="brightness" src="https://via.placeholder.com/150/F0F0F0/000000?text=Brightness" alt="Brightness Image">
+
+            <p>Contrast Filter (`.contrast`):</p>
+            <img class="contrast" src="https://via.placeholder.com/150/F0F0F0/000000?text=Contrast" alt="Contrast Image">
+
+            <p>Invert Filter (`.invert`):</p>
+            <img class="invert" src="https://via.placeholder.com/150/F0F0F0/000000?text=Invert" alt="Invert Image">
+
+            <p>Monochrome Filter (`.monochrome`):</p>
+            <img class="monochrome" src="https://via.placeholder.com/150/F0F0F0/000000?text=Monochrome" alt="Monochrome Image">
+
+            <p>Saturate Filter (`.saturate`):</p>
+            <img class="saturate" src="https://via.placeholder.com/150/F0F0F0/000000?text=Saturate" alt="Saturate Image">
+
+            <p>Sepia Filter (`.sepia`):</p>
+            <img class="sepia" src="https://via.placeholder.com/150/F0F0F0/000000?text=Sepia" alt="Sepia Image">
+
+            <p>Hue Rotate 90deg (`.hue-90`):</p>
+            <img class="hue-90" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-90" alt="Hue 90deg Image">
+
+            <p>Hue Rotate 180deg (`.hue-180`):</p>
+            <img class="hue-180" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-180" alt="Hue 180deg Image">
+
+            <p>Hue Rotate 270deg (`.hue-270`):</p>
+            <img class="hue-270" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-270" alt="Hue 270deg Image">
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Print Single, Full-Page or Image Gallery</h2>
+        <p>This feature requires JavaScript to dynamically set `data-img` attributes on the `<html>` tag before printing. Here, we illustrate the concept.</p>
+        <div class="demo-box">
+            <h3>Individual Image Print (Simulated)</h3>
+            <p>If `html[data-img=individual]` is set, only content with `.individual` class would print.</p>
+            <img class="individual" src="https://via.placeholder.com/300/F0F0F0/000000?text=Individual_Image" alt="Individual Image">
+
+            <h3>Full-Page Print (Simulated)</h3>
+            <p>If `html[data-img=full-page]` is set, only content with `.full-page` class would print.</p>
+            <div class="full-page" style="background-color: #ccffcc; padding: 20px;">
+                <p>This is content meant for a full-page print view.</p>
+            </div>
+
+            <h3>Gallery Print (Simulated)</h3>
+            <p>If `html[data-img=gallery]` is set, only content with `.gallery` class would print, potentially in a grid layout.</p>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_1" alt="Gallery Image 1">
+                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_2" alt="Gallery Image 2">
+                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_3" alt="Gallery Image 3">
+            </div>
+        </div>
+        <p><em>Note: Actual functionality requires JS to toggle `data-img` on `<html>` before print.</em></p>
+    </section>
+
+    <section>
+        <h2>7. Dark Paper Mode (Simulated via `data-paper="dark"`)</h2>
+        <p>When `data-paper="dark"` is set on the `<html>` tag, the print output aims to simulate printing on dark paper with light text.</p>
+        <div class="demo-box" style="background-color: #333; color: #fff;">
+            <p>This text simulates how content might look in dark paper mode.</p>
+            <p>The background would turn dark and text light when printed.</p>
+        </div>
+        <p><em>Note: For a true "dark paper" demo, you'd apply `data-paper="dark"` to the `<html>` tag.</em></p>
+    </section>
+
+    <section>
+        <h2>8. Exact Color Match (Simulated via `data-color="exact"`)</h2>
+        <p>When `data-color="exact"` is set on the `<html>` tag, the library will try to preserve exact colors in print, rather than converting them to grayscale or using print-friendly alternatives.</p>
+        <div class="demo-box" style="background-color: #ffcccc; color: #cc0000; border-color: #cc0000;">
+            <p>This box has specific colors (light red background, dark red text).</p>
+            <p style="color: blue;">This text is blue.</p>
+            <p style="color: green;">This text is green.</p>
+        </div>
+        <p><em>Note: For "exact color match", you'd apply `data-color="exact"` to the `<html>` tag.</em></p>
+    </section>
+
+    <section>
+        <h2>9. Paper Size Sectioning</h2>
+        <p>The library provides classes to define sections optimized for different paper sizes. This often involves applying `data-paper` attributes to `<html>` and using `.paper-size` classes within the document.</p>
+        <div class="demo-box">
+            <h3>A4 Paper Size Section (Simulated)</h3>
+            <div class="paper-size A4" style="border: 2px dashed blue; padding: 15px;">
+                <p>This content is intended to fit an A4 page when printed. (Requires `data-paper="A4"` on `<html>` for full effect).</p>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
+            <br>
+            <h3>Letter Paper Size Section (Simulated)</h3>
+            <div class="paper-size letter" style="border: 2px dashed green; padding: 15px;">
+                <p>This content is intended to fit a Letter page when printed. (Requires `data-paper="letter"` on `<html>` for full effect).</p>
+                <p>More content here.</p>
+            </div>
+        </div>
+        <p><em>Note: Actual paper size rendering depends on the `data-paper` attribute on `<html>` and your printer settings.</em></p>
+    </section>
+
+    <section>
+        <h2>10. Landscape Columns</h2>
+        <p>The library supports multi-column layouts in landscape print mode by setting `data-col` on `<html>` and using the `.column` class.</p>
+        <p><em>Note: To see this in action, you would typically set `data-col="two"`, `data-col="three"`, or `data-col="four"` on the `<html>` tag and set your print orientation to Landscape.</em></p>
+        <div class="demo-box">
+            <h3>Two Columns (Simulated)</h3>
+            <div class="column">
+                <p>This is content for the first column. In a two-column print layout, this would appear next to the second column.</p>
+                <p>More text for column one.</p>
+            </div>
+            <div class="column">
+                <p>This is content for the second column.</p>
+                <p>Even more text for column two, extending its height.</p>
+            </div>
+            <div class="column">
+                <p>This is content for the third column (will wrap to next row if only two columns are active).</p>
+            </div>
+        </div>
+
+        <div class="demo-box">
+            <h3>Three Columns (Simulated)</h3>
+            <p>When `data-col="three"` is active on the `<html>` tag, these `.column` divs would form three columns.</p>
+            <div class="column">Column A content.</div>
+            <div class="column">Column B content.</div>
+            <div class="column">Column C content.</div>
+            <div class="column">Column D content (would wrap if only three columns).</div>
+        </div>
+    </section>
+
+</body>
+</html>
