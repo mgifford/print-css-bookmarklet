@@ -15,7 +15,76 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 1. Drag and Drop Installation:
 
-<a href="javascript:(function(){!function(){const n="print-media-highlight-style",e="print-media-highlight-toggle-button",t="print-media-highlight-legend",i="print-media-highlight-print-only",o="print-media-highlight-hidden-print",l="print-media-highlight-css-change",d="print-media-highlight-general";function r(){document.querySelectorAll(`.${d}, .${i}, .${o}, .${l}`).forEach((function(n){n.classList.remove(d,i,o,l)}))}function s(){r();const n=new Map,e=new Set;function t(i){try{i.cssRules&&Array.from(i.cssRules).forEach((function(i){i.type===CSSRule.MEDIA_RULE&&i.media.mediaText.includes("print")?Array.from(i.cssRules).forEach((function(t){t.selectorText&&(n.has(t.selectorText)||n.set(t.selectorText,[]),n.get(t.selectorText).push(t),e.add(t.selectorText))})):i.type===CSSRule.IMPORT_RULE&&t(i.styleSheet)}))}catch(n){}}Array.from(document.styleSheets).forEach((function(n){t(n)})),document.querySelectorAll("*").forEach((function(e){const t=window.getComputedStyle(e),r=t.getPropertyValue("display");let s=!1,a=!1,c=!1;if(n.size>0)for(const l of n.keys())try{if(e.matches(l)){s=!0;const d=n.get(l),p=d.find((n=>n.style&&n.style.display));if(p){const n=p.style.display;"none"===r&&"none"!==n?(e.classList.add(i),a=!0):"none"!==r&&"none"===n&&(e.classList.add(o),a=!0)}for(const n of d){if(n.style)for(let e=0;e<n.style.length;e++){const i=n.style[e],o=n.style.getPropertyValue(i),l=t.getPropertyValue(i);if("display"!==i&&o!==l){c=!0;break}}if(c)break}}}catch(n){}!s||a||c||e.classList.add(d),c&&e.classList.add(l)}))}!function(){if(document.getElementById(n))return;const r=document.createElement("style");r.id=n,r.textContent=`\n            .${d} {\n                outline: 3px solid red !important;\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px #f00 !important;\n            }\n            .${i} {\n                outline: 3px solid limegreen !important; /* Green for print-only content */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px limegreen !important;\n            }\n            .${o} {\n                outline: 3px solid dodgerblue !important; /* Blue for hidden-in-print content */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px dodgerblue !important;\n            }\n            .${l} {\n                outline: 3px solid darkviolet !important; /* Purple for CSS changes */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px darkviolet !important;\n            }\n            #${e} {\n                position: fixed;\n                top: 10px;\n                right: 10px;\n                z-index: 99999;\n                background-color: #333;\n                color: white;\n                border: none;\n                padding: 8px 12px;\n                border-radius: 4px;\n                cursor: pointer;\n                font-family: sans-serif;\n                font-size: 14px;\n                opacity: 0.8;\n                transition: opacity 0.3s;\n            }\n            #${e}:hover {\n                opacity: 1;\n            }\n            #${t} {\n                position: fixed;\n                top: 50px; /* Adjust based on button height */\n                right: 10px;\n                z-index: 99999;\n                background-color: #f9f9f9;\n                border: 1px solid #ccc;\n                padding: 10px;\n                border-radius: 4px;\n                font-family: sans-serif;\n                font-size: 12px;\n                line-height: 1.5;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.2);\n            }\n            #${t} p {\n                margin: 0;\n            }\n            #${t} .legend-item {\n                display: flex;\n                align-items: center;\n                margin-bottom: 5px;\n            }\n            #${t} .legend-color-box {\n                width: 15px;\n                height: 15px;\n                margin-right: 8px;\n                border: 1px solid #aaa;\n            }\n        `,document.head.appendChild(r)}(),function(){let n=document.getElementById(e);n||(n=document.createElement("button"),n.id=e,n.textContent="Toggle Print Media Highlights",document.body.appendChild(n));let i=document.getElementById(t);i||(i=document.createElement("div"),i.id=t,i.innerHTML='\n                <div class="legend-item"><div class="legend-color-box" style="background-color: limegreen;"></div><p>Visible only in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: dodgerblue;"></div><p>Hidden in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: darkviolet;"></div><p>CSS Change in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: red;"></div><p>General Print Style</p></div>\n            ',document.body.appendChild(i)),i.style.display="none";let o=!1;n.onclick=function(){o?(r(),n.textContent="Toggle Print Media Highlights (Off)",i.style.display="none"):(s(),n.textContent="Toggle Print Media Highlights (On)",i.style.display="block"),o=!o}}(),r(),document.getElementById(e).textContent="Toggle Print Media Highlights (Off)";const a=document.getElementById(t);a&&(a.style.display="none")}();}());" title="Drag this to your bookmarks bar!">Print Highlighter</a>
+<a href="javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},%20.${f},%20.${g},%20.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`
+%20%20%20%20%20%20%20%20%20%20%20%20.${i}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20red%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20%23f00%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${f}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20limegreen%20!important;%20/*%20Green%20for%20print-only%20content%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20limegreen%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${g}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20dodgerblue%20!important;%20/*%20Blue%20for%20hidden-in-print%20content%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20dodgerblue%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${h}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20darkviolet%20!important;%20/*%20Purple%20for%20CSS%20changes%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20darkviolet%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${d}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23333;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color:%20white;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%20none;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%208px%2012px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cursor:%20pointer;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2014px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%200.8;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20transition:%20opacity%200.3s;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${d}:hover%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%201;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2050px;%20/*%20Adjust%20based%20on%20button%20height%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23f9f9f9;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23ccc;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2012px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line-height:%201.5;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%202px%205px%20rgba(0,0,0,0.2);
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20p%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin:%200;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-item%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20display:%20flex;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20align-items:%20center;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom:%205px;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-color-box%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width:%2015px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height:%2015px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-right:%208px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23aaa;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
 
 ## 🖨️ Live Print CSS Demo
 
@@ -49,7 +118,76 @@ A simple browser bookmarklet to help developers and designers quickly identify e
      3. For the URL/Location, copy the *entire* JavaScript code from the javascript: prefix below and paste it into the URL field:  
         
 ```
-javascript:(function(){!function(){const n="print-media-highlight-style",e="print-media-highlight-toggle-button",t="print-media-highlight-legend",i="print-media-highlight-print-only",o="print-media-highlight-hidden-print",l="print-media-highlight-css-change",d="print-media-highlight-general";function r(){document.querySelectorAll(`.${d}, .${i}, .${o}, .${l}`).forEach((function(n){n.classList.remove(d,i,o,l)}))}function s(){r();const n=new Map,e=new Set;function t(i){try{i.cssRules&&Array.from(i.cssRules).forEach((function(i){i.type===CSSRule.MEDIA_RULE&&i.media.mediaText.includes("print")?Array.from(i.cssRules).forEach((function(t){t.selectorText&&(n.has(t.selectorText)||n.set(t.selectorText,[]),n.get(t.selectorText).push(t),e.add(t.selectorText))})):i.type===CSSRule.IMPORT_RULE&&t(i.styleSheet)}))}catch(n){}}Array.from(document.styleSheets).forEach((function(n){t(n)})),document.querySelectorAll("*").forEach((function(e){const t=window.getComputedStyle(e),r=t.getPropertyValue("display");let s=!1,a=!1,c=!1;if(n.size>0)for(const l of n.keys())try{if(e.matches(l)){s=!0;const d=n.get(l),p=d.find((n=>n.style&&n.style.display));if(p){const n=p.style.display;"none"===r&&"none"!==n?(e.classList.add(i),a=!0):"none"!==r&&"none"===n&&(e.classList.add(o),a=!0)}for(const n of d){if(n.style)for(let e=0;e<n.style.length;e++){const i=n.style[e],o=n.style.getPropertyValue(i),l=t.getPropertyValue(i);if("display"!==i&&o!==l){c=!0;break}}if(c)break}}}catch(n){}!s||a||c||e.classList.add(d),c&&e.classList.add(l)}))}!function(){if(document.getElementById(n))return;const r=document.createElement("style");r.id=n,r.textContent=`\n            .${d} {\n                outline: 3px solid red !important;\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px #f00 !important;\n            }\n            .${i} {\n                outline: 3px solid limegreen !important; /* Green for print-only content */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px limegreen !important;\n            }\n            .${o} {\n                outline: 3px solid dodgerblue !important; /* Blue for hidden-in-print content */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px dodgerblue !important;\n            }\n            .${l} {\n                outline: 3px solid darkviolet !important; /* Purple for CSS changes */\n                box-shadow: 0 0 0 2px #fff, 0 0 8px 2px darkviolet !important;\n            }\n            #${e} {\n                position: fixed;\n                top: 10px;\n                right: 10px;\n                z-index: 99999;\n                background-color: #333;\n                color: white;\n                border: none;\n                padding: 8px 12px;\n                border-radius: 4px;\n                cursor: pointer;\n                font-family: sans-serif;\n                font-size: 14px;\n                opacity: 0.8;\n                transition: opacity 0.3s;\n            }\n            #${e}:hover {\n                opacity: 1;\n            }\n            #${t} {\n                position: fixed;\n                top: 50px; /* Adjust based on button height */\n                right: 10px;\n                z-index: 99999;\n                background-color: #f9f9f9;\n                border: 1px solid #ccc;\n                padding: 10px;\n                border-radius: 4px;\n                font-family: sans-serif;\n                font-size: 12px;\n                line-height: 1.5;\n                box-shadow: 0 2px 5px rgba(0,0,0,0.2);\n            }\n            #${t} p {\n                margin: 0;\n            }\n            #${t} .legend-item {\n                display: flex;\n                align-items: center;\n                margin-bottom: 5px;\n            }\n            #${t} .legend-color-box {\n                width: 15px;\n                height: 15px;\n                margin-right: 8px;\n                border: 1px solid #aaa;\n            }\n        `,document.head.appendChild(r)}(),function(){let n=document.getElementById(e);n||(n=document.createElement("button"),n.id=e,n.textContent="Toggle Print Media Highlights",document.body.appendChild(n));let i=document.getElementById(t);i||(i=document.createElement("div"),i.id=t,i.innerHTML='\n                <div class="legend-item"><div class="legend-color-box" style="background-color: limegreen;"></div><p>Visible only in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: dodgerblue;"></div><p>Hidden in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: darkviolet;"></div><p>CSS Change in Print</p></div>\n                <div class="legend-item"><div class="legend-color-box" style="background-color: red;"></div><p>General Print Style</p></div>\n            ',document.body.appendChild(i)),i.style.display="none";let o=!1;n.onclick=function(){o?(r(),n.textContent="Toggle Print Media Highlights (Off)",i.style.display="none"):(s(),n.textContent="Toggle Print Media Highlights (On)",i.style.display="block"),o=!o}}(),r(),document.getElementById(e).textContent="Toggle Print Media Highlights (Off)";const a=document.getElementById(t);a&&(a.style.display="none")}();}());
+javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},%20.${f},%20.${g},%20.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`
+%20%20%20%20%20%20%20%20%20%20%20%20.${i}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20red%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20%23f00%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${f}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20limegreen%20!important;%20/*%20Green%20for%20print-only%20content%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20limegreen%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${g}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20dodgerblue%20!important;%20/*%20Blue%20for%20hidden-in-print%20content%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20dodgerblue%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20.${h}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20darkviolet%20!important;%20/*%20Purple%20for%20CSS%20changes%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20darkviolet%20!important;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${d}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23333;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color:%20white;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%20none;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%208px%2012px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cursor:%20pointer;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2014px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%200.8;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20transition:%20opacity%200.3s;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${d}:hover%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%201;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2050px;%20/*%20Adjust%20based%20on%20button%20height%20*/
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23f9f9f9;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23ccc;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%2010px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2012px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line-height:%201.5;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%202px%205px%20rgba(0,0,0,0.2);
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20p%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin:%200;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-item%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20display:%20flex;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20align-items:%20center;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom:%205px;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-color-box%20{
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width:%2015px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height:%2015px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-right:%208px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23aaa;
+%20%20%20%20%20%20%20%20%20%20%20%20}
+%20%20%20%20%20%20%20%20`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E
+%20%20%20%20%20%20%20%20%20%20%20%20`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();
 ```
 
 3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
@@ -70,7 +208,6 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 
 - [How does print CSS work? (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/print)
 - [h123 Bookmarklet Inspiration](https://hinderlingvolkart.github.io/h123/)
-- https://make-bookmarklets.com
 - https://chriszarate.github.io/bookmarkleter
 - https://printedcss.com/
 - https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/
