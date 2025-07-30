@@ -19,7 +19,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 ## 🖨️ Live Print CSS Demo
 
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -117,7 +117,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
                 font-size: 0.9em !important;
             }
         }
-    </style>
+</style>
 
 
     <div class="demo-section">
