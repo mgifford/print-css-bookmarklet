@@ -20,138 +20,141 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 ## 🖨️ Live Print CSS Demo
 
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
 
-        h1 {
-            color: #0056b3;
-        }
+  h1 {
+    color: #0056b3;
+  }
 
-        .demo-section {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+  .demo-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
-        /* --- Print CSS Demo Styles --- */
-        .no-print-demo {
-            color: #b00; /* Red color */
-            font-weight: bold;
-            border: 2px dashed #b00;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+  /* --- Print CSS Demo Styles --- */
+  .no-print-demo {
+    color: #b00;
+    /* Red color */
+    font-weight: bold;
+    border: 2px dashed #b00;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 
-        .print-different-demo {
-            color: #333; /* Dark gray */
-            font-size: 1.2em;
-            text-decoration: underline;
-            border: 2px solid #666;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+  .print-different-demo {
+    color: #333;
+    /* Dark gray */
+    font-size: 1.2em;
+    text-decoration: underline;
+    border: 2px solid #666;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 
-        .print-only-demo {
-            display: none; /* Hidden by default */
-            background-color: #e6ffe6; /* Light green background */
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 2px solid limegreen;
-        }
+  .print-only-demo {
+    display: none;
+    /* Hidden by default */
+    background-color: #e6ffe6;
+    /* Light green background */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid limegreen;
+  }
 
-        .general-print-style-demo {
-            padding: 15px;
-            margin-bottom: 10px;
-            background-color: #f0f8ff; /* AliceBlue */
-            border: 1px solid #ccc;
-        }
+  .general-print-style-demo {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f0f8ff;
+    /* AliceBlue */
+    border: 1px solid #ccc;
+  }
 
-        /* --- Print Media Query --- */
-        @media print {
-            body {
-                background-color: #fff !important; /* Ensure white background for print */
-                color: #000 !important;
-            }
+  /* --- Print Media Query --- */
+  @media print {
+    body {
+      background-color: #fff !important;
+      /* Ensure white background for print */
+      color: #000 !important;
+    }
 
-            .demo-section {
-                box-shadow: none; /* No shadows in print */
-                border: 1px solid #eee;
-            }
+    .demo-section {
+      box-shadow: none;
+      /* No shadows in print */
+      border: 1px solid #eee;
+    }
 
-            .no-print-demo {
-                display: none !important; /* This will be HIDDEN IN PRINT (blue highlight) */
-            }
+    .no-print-demo {
+      display: none !important;
+      /* This will be HIDDEN IN PRINT (blue highlight) */
+    }
 
-            .print-different-demo {
-                color: #007700 !important; /* Changes to dark green */
-                font-size: 2em !important; /* Becomes larger */
-                font-weight: bold !important;
-                text-decoration: none !important; /* Underline removed */
-                border-color: #007700 !important; /* Border color changes */
-            }
+    .print-different-demo {
+      color: #007700 !important;
+      /* Changes to dark green */
+      font-size: 2em !important;
+      /* Becomes larger */
+      font-weight: bold !important;
+      text-decoration: none !important;
+      /* Underline removed */
+      border-color: #007700 !important;
+      /* Border color changes */
+    }
 
-            .print-only-demo {
-                display: block !important; /* This will be VISIBLE ONLY IN PRINT (green highlight) */
-                color: #b00 !important; /* Red color in print */
-                font-style: italic !important;
-                font-size: 1.5em !important;
-                background-color: #fff !important; /* Background removed for print */
-                border-color: #b00 !important; /* Border color changes */
-            }
+    .print-only-demo {
+      display: block !important;
+      /* This will be VISIBLE ONLY IN PRINT (green highlight) */
+      color: #b00 !important;
+      /* Red color in print */
+      font-style: italic !important;
+      font-size: 1.5em !important;
+      background-color: #fff !important;
+      /* Background removed for print */
+      border-color: #b00 !important;
+      /* Border color changes */
+    }
 
-            .general-print-style-demo {
-                padding: 5px !important; /* Smaller padding in print */
-                background-color: #f0f0f0 !important; /* Lighter background in print */
-                border: 2px solid orange !important; /* New border style */
-            }
+    .general-print-style-demo {
+      padding: 5px !important;
+      /* Smaller padding in print */
+      background-color: #f0f0f0 !important;
+      /* Lighter background in print */
+      border: 2px solid orange !important;
+      /* New border style */
+    }
 
-            /* Example of a general rule affecting elements not explicitly called out */
-            p {
-                margin-bottom: 5px !important;
-                font-size: 0.9em !important;
-            }
-        }
+    /* Example of a general rule affecting elements not explicitly called out */
+    p {
+      margin-bottom: 5px !important;
+      font-size: 0.9em !important;
+    }
+  }
 </style>
 
-
     <div class="demo-section">
-        <h2>Hidden in Print</h2>
-        <div class="no-print-demo">
-            This element has `display: none` in `@media print`. It will be highlighted with a **blue border**.
-            In normal view, it's red and bold.
-        </div>
-        <p>This is a regular paragraph that might change its font size in print due to a general `p` rule.</p>
+      <h2>Hidden in Print</h2>
+      <div class="no-print-demo"> This element has `display: none` in `@media print`. It will be highlighted with a **blue border**. In normal view, it's red and bold. </div>
+      <p>This is a regular paragraph that might change its font size in print due to a general `p` rule.</p>
     </div>
-
     <div class="demo-section">
-        <h2>CSS Changes in Print</h2>
-        <div class="print-different-demo">
-            This element has several CSS properties that change in `@media print` (color, font-size, text-decoration, border). It will be highlighted with a **purple border**.
-            In normal view, it's dark gray and underlined.
-        </div>
+      <h2>CSS Changes in Print</h2>
+      <div class="print-different-demo"> This element has several CSS properties that change in `@media print` (color, font-size, text-decoration, border). It will be highlighted with a **purple border**. In normal view, it's dark gray and underlined. </div>
     </div>
-
     <div class="demo-section">
-        <h2>Visible Only in Print</h2>
-        <div class="print-only-demo">
-            This element has `display: none` by default, but `display: block` in `@media print`. It will be highlighted with a **limegreen border**.
-            You should only see this text when you activate the print highlights.
-        </div>
+      <h2>Visible Only in Print</h2>
+      <div class="print-only-demo"> This element has `display: none` by default, but `display: block` in `@media print`. It will be highlighted with a **limegreen border**. You should only see this text when you activate the print highlights. </div>
     </div>
-
     <div class="demo-section">
-        <h2>General Print Style</h2>
-        <div class="general-print-style-demo">
-            This element has some of its general styles (like padding, background, border) changed in the print stylesheet, but no display changes or very prominent CSS changes that triggered other categories. It will be highlighted with a **red border**.
-        </div>
+      <h2>General Print Style</h2>
+      <div class="general-print-style-demo"> This element has some of its general styles (like padding, background, border) changed in the print stylesheet, but no display changes or very prominent CSS changes that triggered other categories. It will be highlighted with a **red border**. </div>
     </div>
-
 
 
 <div class="no-print-demo">This message will NOT appear when you print this page.</div>
