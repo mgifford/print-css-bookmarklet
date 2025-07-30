@@ -11,8 +11,6 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 ## **🚀 How to Use** 
 
-<a href="javascript:(function(){window.print();})();">Test</a>
-
 1. Drag and Drop Installation:
 
 <a href="javascript:(function() {
