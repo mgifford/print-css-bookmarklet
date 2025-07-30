@@ -15,76 +15,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 1. Drag and Drop Installation:
 
-<a href="javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},%20.${f},%20.${g},%20.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`
-%20%20%20%20%20%20%20%20%20%20%20%20.${i}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20red%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20%23f00%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${f}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20limegreen%20!important;%20/*%20Green%20for%20print-only%20content%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20limegreen%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${g}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20dodgerblue%20!important;%20/*%20Blue%20for%20hidden-in-print%20content%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20dodgerblue%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${h}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20darkviolet%20!important;%20/*%20Purple%20for%20CSS%20changes%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20darkviolet%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${d}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23333;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color:%20white;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%20none;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%208px%2012px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cursor:%20pointer;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2014px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%200.8;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20transition:%20opacity%200.3s;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${d}:hover%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%201;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2050px;%20/*%20Adjust%20based%20on%20button%20height%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23f9f9f9;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23ccc;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2012px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line-height:%201.5;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%202px%205px%20rgba(0,0,0,0.2);
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20p%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin:%200;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-item%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20display:%20flex;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20align-items:%20center;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom:%205px;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-color-box%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width:%2015px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height:%2015px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-right:%208px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23aaa;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
+<a href="javascript:(function(){ const a = 'print-media-highlight-z'; const b = 'print-media-highlight-toggle-'; const c = 'print-media-highlight-'; const d = 'print-media-highlight-print-only'; const e = 'print-media-highlight-hidden-print'; const f = 'print-media-highlight-css-change'; const g = 'print-media-highlight-general'; // For general print styles that don't fit other categories function h() { if (document.getElementById(a)) return; const z = document.createElement('z'); z.id = a; z.textContent = ` .${g} { outline: 3px solid red !important; box-shadow: 0 0 0 2px #fff, 0 0 8px 2px #f00 !important; } .${d} { outline: 3px solid limegreen !important; /* Green for print-only content */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px limegreen !important; } .${e} { outline: 3px solid dodgerblue !important; /* Blue for hidden-in-print content */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px dodgerblue !important; } .${f} { outline: 3px solid darkviolet !important; /* Purple for CSS changes */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px darkviolet !important; } #${b} { position: fixed; top: 10px; right: 10px; z-index: 99999; background-color: #333; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 14px; opacity: 0.8; transition: opacity 0.3s; } #${b}:hover { opacity: 1; } #${c} { position: fixed; top: 50px; /* Adjust based on  height */ right: 10px; z-index: 99999; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 4px; font-family: sans-serif; font-size: 12px; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.2); } #${c} p { margin: 0; } #${c} .-item { display: flex; align-items: center; margin-bottom: 5px; } #${c} .-color-box { width: 15px; height: 15px; margin-right: 8px; border: 1px solid #aaa; } `; document.head.appendChild(z); } function j() { const z = document.getElementById(a); if (z) { z.remove(); } } function k() { document.querySelectorAll(`.${g}, .${d}, .${e}, .${f}`).forEach(function(el) { el.classList.remove(g, d, e, f); }); } function l() { k(); // Clear previous highlights const m = new Map(); // Store print rules by u for easier lookup const n = new Set(); // Keep track of all affected selectors // Step 1: Extract print media rules and store them function o(sheet) { try { if (sheet.cssRules) { Array.from(sheet.cssRules).forEach(function(rule) { if (rule.type === CSSRule.MEDIA_RULE && rule.media.mediaText.includes('print')) { Array.from(rule.cssRules).forEach(function(y) { if (y.selectorText) { if (!m.has(y.selectorText)) { m.set(y.selectorText, []); } m.get(y.selectorText).push(y); n.add(y.selectorText); } }); } else if (rule.type === CSSRule.IMPORT_RULE) { o(rule.styleSheet); } }); } } catch (e) { // } } Array.from(document.styleSheets).forEach(function(sheet) { o(sheet); }); // Step 2: Analyze elements and apply appropriate highlights document.querySelectorAll('*').forEach(function(el) { // Check for print-only content (display: none normally, but visible in print) const p = window.getComputedStyle(el); const q = p.getPropertyValue('display'); let r = false; let s = false; let t = false; // Simulate print styles for analysis - this is a simplification // A more robust solution would involve deeper CSSOM analysis or a headless browser // For this bookmarklet, we'll check for explicit display rules in print media. if (m.size > 0) { for (const u of m.keys()) { try { // Check if the element matches any u in a print media query if (el.matches(u)) { r = true; const v = m.get(u); // Check for display changes const w = v.find(rule => rule.z && rule.z.display); if (w) { const x = w.z.display; if (q === 'none' && x !== 'none') { el.classList.add(d); s = true; } else if (q !== 'none' && x === 'none') { el.classList.add(e); s = true; } } // Check for other CSS changes (simplified: just look for *any* property difference) for (const y of v) { if (y.z) { for (let z = 0; z < y.z.length; z++) { const { = y.z[z]; const | = y.z.getPropertyValue({); const } = p.getPropertyValue({); // We avoid checking 'display' again since we handled it above // Also, skip properties that change frequently or are hard to compare reliably (e.g., 'width', 'height' if they're dynamic) if ({ !== 'display' && | !== }) { t = true; break; } } } if (t) break; } } } catch (e) { // } } } // Apply general highlight if affected by print rules but no specific display/css change caught if (r && !s && !t) { el.classList.add(g); } if (t) { el.classList.add(f); } }); } function ~() { let  = document.getElementById(b); if (!) {  = document.createElement(''); .id = b; .textContent = 'Toggle Print Media Highlights'; document.body.appendChild(); } let  = document.getElementById(c); if (!) {  = document.createElement('div'); .id = c; .innerHTML = ` <div class="-item"><div class="-color-box" z="background-color: limegreen;"></div><p>Visible only in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: dodgerblue;"></div><p>Hidden in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: darkviolet;"></div><p>CSS Change in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: red;"></div><p>General Print Style</p></div> `; document.body.appendChild(); } .z.display = 'none'; // Initially hidden let  = false; .onclick = function() { if () { k(); .textContent = 'Toggle Print Media Highlights (Off)'; .z.display = 'none'; } else { l(); .textContent = 'Toggle Print Media Highlights (On)'; .z.display = 'block'; }  = !; }; } // Initial setup h(); ~(); k(); // Ensure no highlights on initial load document.getElementById(b).textContent = 'Toggle Print Media Highlights (Off)'; const  = document.getElementById(c); if () { .z.display = 'none'; } })();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
 
 ## 🖨️ Live Print CSS Demo
 
@@ -118,76 +49,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
      3. For the URL/Location, copy the *entire* JavaScript code from the javascript: prefix below and paste it into the URL field:  
         
 ```
-javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},%20.${f},%20.${g},%20.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`
-%20%20%20%20%20%20%20%20%20%20%20%20.${i}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20red%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20%23f00%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${f}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20limegreen%20!important;%20/*%20Green%20for%20print-only%20content%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20limegreen%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${g}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20dodgerblue%20!important;%20/*%20Blue%20for%20hidden-in-print%20content%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20dodgerblue%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20.${h}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20outline:%203px%20solid%20darkviolet%20!important;%20/*%20Purple%20for%20CSS%20changes%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%200%200%202px%20%23fff,%200%200%208px%202px%20darkviolet%20!important;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${d}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23333;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20color:%20white;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%20none;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%208px%2012px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cursor:%20pointer;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2014px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%200.8;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20transition:%20opacity%200.3s;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${d}:hover%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20opacity:%201;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position:%20fixed;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top:%2050px;%20/*%20Adjust%20based%20on%20button%20height%20*/
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20right:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20z-index:%2099999;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20background-color:%20%23f9f9f9;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23ccc;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding:%2010px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border-radius:%204px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-family:%20sans-serif;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20font-size:%2012px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line-height:%201.5;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:%200%202px%205px%20rgba(0,0,0,0.2);
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20p%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin:%200;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-item%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20display:%20flex;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20align-items:%20center;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom:%205px;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20%20%20%20%20%23${e}%20.legend-color-box%20{
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width:%2015px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height:%2015px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin-right:%208px;
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20border:%201px%20solid%20%23aaa;
-%20%20%20%20%20%20%20%20%20%20%20%20}
-%20%20%20%20%20%20%20%20`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:%20red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E
-%20%20%20%20%20%20%20%20%20%20%20%20`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights%20(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights%20(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();
+javascript:(function(){ const a = 'print-media-highlight-z'; const b = 'print-media-highlight-toggle-'; const c = 'print-media-highlight-'; const d = 'print-media-highlight-print-only'; const e = 'print-media-highlight-hidden-print'; const f = 'print-media-highlight-css-change'; const g = 'print-media-highlight-general'; // For general print styles that don't fit other categories function h() { if (document.getElementById(a)) return; const z = document.createElement('z'); z.id = a; z.textContent = ` .${g} { outline: 3px solid red !important; box-shadow: 0 0 0 2px #fff, 0 0 8px 2px #f00 !important; } .${d} { outline: 3px solid limegreen !important; /* Green for print-only content */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px limegreen !important; } .${e} { outline: 3px solid dodgerblue !important; /* Blue for hidden-in-print content */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px dodgerblue !important; } .${f} { outline: 3px solid darkviolet !important; /* Purple for CSS changes */ box-shadow: 0 0 0 2px #fff, 0 0 8px 2px darkviolet !important; } #${b} { position: fixed; top: 10px; right: 10px; z-index: 99999; background-color: #333; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 14px; opacity: 0.8; transition: opacity 0.3s; } #${b}:hover { opacity: 1; } #${c} { position: fixed; top: 50px; /* Adjust based on  height */ right: 10px; z-index: 99999; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 4px; font-family: sans-serif; font-size: 12px; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.2); } #${c} p { margin: 0; } #${c} .-item { display: flex; align-items: center; margin-bottom: 5px; } #${c} .-color-box { width: 15px; height: 15px; margin-right: 8px; border: 1px solid #aaa; } `; document.head.appendChild(z); } function j() { const z = document.getElementById(a); if (z) { z.remove(); } } function k() { document.querySelectorAll(`.${g}, .${d}, .${e}, .${f}`).forEach(function(el) { el.classList.remove(g, d, e, f); }); } function l() { k(); // Clear previous highlights const m = new Map(); // Store print rules by u for easier lookup const n = new Set(); // Keep track of all affected selectors // Step 1: Extract print media rules and store them function o(sheet) { try { if (sheet.cssRules) { Array.from(sheet.cssRules).forEach(function(rule) { if (rule.type === CSSRule.MEDIA_RULE && rule.media.mediaText.includes('print')) { Array.from(rule.cssRules).forEach(function(y) { if (y.selectorText) { if (!m.has(y.selectorText)) { m.set(y.selectorText, []); } m.get(y.selectorText).push(y); n.add(y.selectorText); } }); } else if (rule.type === CSSRule.IMPORT_RULE) { o(rule.styleSheet); } }); } } catch (e) { // } } Array.from(document.styleSheets).forEach(function(sheet) { o(sheet); }); // Step 2: Analyze elements and apply appropriate highlights document.querySelectorAll('*').forEach(function(el) { // Check for print-only content (display: none normally, but visible in print) const p = window.getComputedStyle(el); const q = p.getPropertyValue('display'); let r = false; let s = false; let t = false; // Simulate print styles for analysis - this is a simplification // A more robust solution would involve deeper CSSOM analysis or a headless browser // For this bookmarklet, we'll check for explicit display rules in print media. if (m.size > 0) { for (const u of m.keys()) { try { // Check if the element matches any u in a print media query if (el.matches(u)) { r = true; const v = m.get(u); // Check for display changes const w = v.find(rule => rule.z && rule.z.display); if (w) { const x = w.z.display; if (q === 'none' && x !== 'none') { el.classList.add(d); s = true; } else if (q !== 'none' && x === 'none') { el.classList.add(e); s = true; } } // Check for other CSS changes (simplified: just look for *any* property difference) for (const y of v) { if (y.z) { for (let z = 0; z < y.z.length; z++) { const { = y.z[z]; const | = y.z.getPropertyValue({); const } = p.getPropertyValue({); // We avoid checking 'display' again since we handled it above // Also, skip properties that change frequently or are hard to compare reliably (e.g., 'width', 'height' if they're dynamic) if ({ !== 'display' && | !== }) { t = true; break; } } } if (t) break; } } } catch (e) { // } } } // Apply general highlight if affected by print rules but no specific display/css change caught if (r && !s && !t) { el.classList.add(g); } if (t) { el.classList.add(f); } }); } function ~() { let  = document.getElementById(b); if (!) {  = document.createElement(''); .id = b; .textContent = 'Toggle Print Media Highlights'; document.body.appendChild(); } let  = document.getElementById(c); if (!) {  = document.createElement('div'); .id = c; .innerHTML = ` <div class="-item"><div class="-color-box" z="background-color: limegreen;"></div><p>Visible only in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: dodgerblue;"></div><p>Hidden in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: darkviolet;"></div><p>CSS Change in Print</p></div> <div class="-item"><div class="-color-box" z="background-color: red;"></div><p>General Print Style</p></div> `; document.body.appendChild(); } .z.display = 'none'; // Initially hidden let  = false; .onclick = function() { if () { k(); .textContent = 'Toggle Print Media Highlights (Off)'; .z.display = 'none'; } else { l(); .textContent = 'Toggle Print Media Highlights (On)'; .z.display = 'block'; }  = !; }; } // Initial setup h(); ~(); k(); // Ensure no highlights on initial load document.getElementById(b).textContent = 'Toggle Print Media Highlights (Off)'; const  = document.getElementById(c); if () { .z.display = 'none'; } })();
 ```
 
 3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
@@ -212,6 +74,7 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 - https://printedcss.com/
 - https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/
 - https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102
+- https://www.terrific.tools/code/js-minify
 
 **How to use this README on GitHub:**
 
