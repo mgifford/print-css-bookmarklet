@@ -47,6 +47,11 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 - [h123 Bookmarklet Inspiration](https://hinderlingvolkart.github.io/h123/)
 - https://make-bookmarklets.com
 - https://chriszarate.github.io/bookmarkleter
+- https://printedcss.com/
+- https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/
+- https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102
+
+
 
 
 **How to use this README on GitHub:**
