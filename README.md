@@ -15,29 +15,144 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 1. Drag and Drop Installation:
 
-<a href="javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},.${f},.${g},.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`%20.${i}{outline:3px%20solid%20red%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20%23f00%20!important;}.${f}{outline:3px%20solid%20limegreen%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20limegreen%20!important;}.${g}{outline:3px%20solid%20dodgerblue%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20dodgerblue%20!important;}.${h}{outline:3px%20solid%20darkviolet%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20darkviolet%20!important;}%23${d}{position:fixed;top:10px;right:10px;z-index:99999;background-color:%23333;color:white;border:none;padding:8px%2012px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity%200.3s;}%23${d}:hover{opacity:1;}%23${e}{position:fixed;top:50px;right:10px;z-index:99999;background-color:%23f9f9f9;border:1px%20solid%20%23ccc;padding:10px;border-radius:4px;font-family:sans-serif;font-size:12px;line-height:1.5;box-shadow:0%202px%205px%20rgba(0,0,0,0.2);}%23${e}p{margin:0;}%23${e}.legend-item{display:flex;align-items:center;margin-bottom:5px;}%23${e}.legend-color-box{width:15px;height:15px;margin-right:8px;border:1px%20solid%20%23aaa;}`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();">Print Highlighter</a>
+<a href="javascript:(function(){const n="print-media-highlight-style",a="print-media-highlight-toggle-button",e="print-media-highlight-legend",i="print-media-highlight-print-only",l="print-media-highlight-hidden-print",t="print-media-highlight-css-change",o="print-media-highlight-general";function s(){if(document.getElementById(n))return;const a=document.createElement("style");a.id=n,a.textContent="."+o+"{outline:3px solid red !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px #f00 !important;}."+i+"{outline:3px solid limegreen !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px limegreen !important;}."+l+"{outline:3px solid dodgerblue !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px dodgerblue !important;}."+t+"{outline:3px solid darkviolet !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px darkviolet !important;}#"+a+"{position:fixed;top:10px;right:10px;z-index:99999;background-color:#333;color:white;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity 0.3s;}#"+a+":hover{opacity:1;}#"+e+"{position:fixed;top:50px;right:10px;z-index:99999;background-color:#f9f9f9;border:1px solid #ccc;padding:10px;border-radius:4px;font-family:sans-serif;font-size:12px;line-height:1.5;box-shadow:0 2px 5px rgba(0,0,0,0.2);}#"+e+" p{margin:0;}#"+e+" .legend-item{display:flex;align-items:center;margin-bottom:5px;}#"+e+" .legend-color-box{width:15px;height:15px;margin-right:8px;border:1px solid #aaa;}",document.head.appendChild(a)}function d(){document.querySelectorAll("."+o+",."+i+",."+l+",."+t).forEach(function(n){n.classList.remove(o,i,l,t)})}function c(){d();const n=new Map;function a(e){try{e.cssRules&&Array.from(e.cssRules).forEach(function(e){e.type===CSSRule.MEDIA_RULE&&e.media.mediaText.includes("print")?Array.from(e.cssRules).forEach(function(e){e.selectorText&&(n.has(e.selectorText)||n.set(e.selectorText,[]),n.get(e.selectorText).push(e))}):e.type===CSSRule.IMPORT_RULE&&a(e.styleSheet)})}catch(n){}}Array.from(document.styleSheets).forEach(function(n){a(n)}),document.querySelectorAll("*").forEach(function(a){const e=window.getComputedStyle(a),o=e.getPropertyValue("display");let s=!1,d=!1,c=!1;if(0!==n.size)for(const h of n.keys())try{if(a.matches(h)){s=!0;const p=n.get(h),r=p.find(n=>n.style&&n.style.display);if(r){const n=r.style.display;"none"===o&&"none"!==n?(a.classList.add(i),d=!0):"none"!==o&&"none"===n&&(a.classList.add(l),d=!0)}for(const n of p){if(n.style)for(let i=0;i<n.style.length;i++){const l=n.style[i],t=n.style.getPropertyValue(l),o=e.getPropertyValue(l);if("display"!==l&&t!==o){c=!0;break}}if(c)break}}}catch(n){}s&&!d&&!c&&a.classList.add(o),c&&a.classList.add(t)})}function h(){let n=document.getElementById(a);n||(n=document.createElement("button"),n.id=a,n.textContent="Toggle Print Media Highlights",document.body.appendChild(n));let i=document.getElementById(e);i||(i=document.createElement("div"),i.id=e,i.innerHTML='<div class="legend-item"><div class="legend-color-box" style="background-color:limegreen;"></div><p>Visible only in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:dodgerblue;"></div><p>Hidden in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:darkviolet;"></div><p>CSS Change in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:red;"></div><p>General Print Style</p></div>',document.body.appendChild(i)),i.style.display="none";let l=!1;n.onclick=function(){l?(d(),n.textContent="Toggle Print Media Highlights (Off)",i.style.display="none"):(c(),n.textContent="Toggle Print Media Highlights (On)",i.style.display="block"),l=!l}}s(),h(),d(),document.getElementById(a).textContent="Toggle Print Media Highlights (Off)";const p=document.getElementById(e);p&&p.style.display==="block"&& (p.style.display="none");})();">Print Highlighter</a>
 
 ## 🖨️ Live Print CSS Demo
 
-<style>
-  .no-print-demo { color: #b00; font-weight: bold; }
-  .print-different-demo { color: #333; font-size: 1.2em; }
-  .print-only-demo { display: none; }
-  @media print {
-    .no-print-demo { display: none !important; }
-    .print-different-demo {
-      color: #007700 !important;
-      font-size: 2em !important;
-      font-weight: bold !important;
-    }
-    .print-only-demo {
-      display: block !important;
-      color: #b00 !important;
-      font-style: italic !important;
-      font-size: 1.5em !important;
-    }
-  }
-</style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+        }
+
+        .demo-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- Print CSS Demo Styles --- */
+        .no-print-demo {
+            color: #b00; /* Red color */
+            font-weight: bold;
+            border: 2px dashed #b00;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .print-different-demo {
+            color: #333; /* Dark gray */
+            font-size: 1.2em;
+            text-decoration: underline;
+            border: 2px solid #666;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .print-only-demo {
+            display: none; /* Hidden by default */
+            background-color: #e6ffe6; /* Light green background */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid limegreen;
+        }
+
+        .general-print-style-demo {
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f0f8ff; /* AliceBlue */
+            border: 1px solid #ccc;
+        }
+
+        /* --- Print Media Query --- */
+        @media print {
+            body {
+                background-color: #fff !important; /* Ensure white background for print */
+                color: #000 !important;
+            }
+
+            .demo-section {
+                box-shadow: none; /* No shadows in print */
+                border: 1px solid #eee;
+            }
+
+            .no-print-demo {
+                display: none !important; /* This will be HIDDEN IN PRINT (blue highlight) */
+            }
+
+            .print-different-demo {
+                color: #007700 !important; /* Changes to dark green */
+                font-size: 2em !important; /* Becomes larger */
+                font-weight: bold !important;
+                text-decoration: none !important; /* Underline removed */
+                border-color: #007700 !important; /* Border color changes */
+            }
+
+            .print-only-demo {
+                display: block !important; /* This will be VISIBLE ONLY IN PRINT (green highlight) */
+                color: #b00 !important; /* Red color in print */
+                font-style: italic !important;
+                font-size: 1.5em !important;
+                background-color: #fff !important; /* Background removed for print */
+                border-color: #b00 !important; /* Border color changes */
+            }
+
+            .general-print-style-demo {
+                padding: 5px !important; /* Smaller padding in print */
+                background-color: #f0f0f0 !important; /* Lighter background in print */
+                border: 2px solid orange !important; /* New border style */
+            }
+
+            /* Example of a general rule affecting elements not explicitly called out */
+            p {
+                margin-bottom: 5px !important;
+                font-size: 0.9em !important;
+            }
+        }
+    </style>
+
+
+    <div class="demo-section">
+        <h2>Hidden in Print</h2>
+        <div class="no-print-demo">
+            This element has `display: none` in `@media print`. It will be highlighted with a **blue border**.
+            In normal view, it's red and bold.
+        </div>
+        <p>This is a regular paragraph that might change its font size in print due to a general `p` rule.</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>CSS Changes in Print</h2>
+        <div class="print-different-demo">
+            This element has several CSS properties that change in `@media print` (color, font-size, text-decoration, border). It will be highlighted with a **purple border**.
+            In normal view, it's dark gray and underlined.
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Visible Only in Print</h2>
+        <div class="print-only-demo">
+            This element has `display: none` by default, but `display: block` in `@media print`. It will be highlighted with a **limegreen border**.
+            You should only see this text when you activate the print highlights.
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>General Print Style</h2>
+        <div class="general-print-style-demo">
+            This element has some of its general styles (like padding, background, border) changed in the print stylesheet, but no display changes or very prominent CSS changes that triggered other categories. It will be highlighted with a **red border**.
+        </div>
+    </div>
+
+
 
 <div class="no-print-demo">This message will NOT appear when you print this page.</div>
 <div class="print-different-demo">This text changes color and size when printed.</div>
@@ -49,7 +164,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
      3. For the URL/Location, copy the *entire* JavaScript code from the javascript: prefix below and paste it into the URL field:  
         
 ```
-javascript:void%20function(){javascript:(function(){function%20a(){document.querySelectorAll(`.${i},.${f},.${g},.${h}`).forEach(function(a){a.classList.remove(i,f,g,h)})}function%20b(){function%20b(a){try{a.cssRules%26%26Array.from(a.cssRules).forEach(function(a){a.type===CSSRule.MEDIA_RULE%26%26a.media.mediaText.includes(%22print%22)%3FArray.from(a.cssRules).forEach(function(a){a.selectorText%26%26(!c.has(a.selectorText)%26%26c.set(a.selectorText,[]),c.get(a.selectorText).push(a),d.add(a.selectorText))}):a.type===CSSRule.IMPORT_RULE%26%26b(a.styleSheet)})}catch(a){}}a();const%20c=new%20Map,d=new%20Set;Array.from(document.styleSheets).forEach(function(a){b(a)}),document.querySelectorAll(%22*%22).forEach(function(a){const%20b=window.getComputedStyle(a),d=b.getPropertyValue(%22display%22);let%20e=!1,j=!1,k=!1;if(0%3Cc.size)for(const%20h%20of%20c.keys())try{if(a.matches(h)){e=!0;const%20i=c.get(h),l=i.find(a=%3Ea.style%26%26a.style.display);if(l){const%20b=l.style.display;%22none%22===d%26%26%22none%22!==b%3F(a.classList.add(f),j=!0):%22none%22!==d%26%26%22none%22===b%26%26(a.classList.add(g),j=!0)}for(const%20a%20of%20i){if(a.style)for(let%20c=0;c%3Ca.style.length;c++){const%20d=a.style[c],e=a.style.getPropertyValue(d),f=b.getPropertyValue(d);if(%22display%22!==d%26%26e!==f){k=!0;break}}if(k)break}}}catch(a){}!e||j||k||a.classList.add(i),k%26%26a.classList.add(h)})}const%20c=%22print-media-highlight-style%22,d=%22print-media-highlight-toggle-button%22,e=%22print-media-highlight-legend%22,f=%22print-media-highlight-print-only%22,g=%22print-media-highlight-hidden-print%22,h=%22print-media-highlight-css-change%22,i=%22print-media-highlight-general%22;(function(){if(!document.getElementById(c)){const%20a=document.createElement(%22style%22);a.id=c,a.textContent=`%20.${i}{outline:3px%20solid%20red%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20%23f00%20!important;}.${f}{outline:3px%20solid%20limegreen%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20limegreen%20!important;}.${g}{outline:3px%20solid%20dodgerblue%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20dodgerblue%20!important;}.${h}{outline:3px%20solid%20darkviolet%20!important;box-shadow:0%200%200%202px%20%23fff,0%200%208px%202px%20darkviolet%20!important;}%23${d}{position:fixed;top:10px;right:10px;z-index:99999;background-color:%23333;color:white;border:none;padding:8px%2012px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity%200.3s;}%23${d}:hover{opacity:1;}%23${e}{position:fixed;top:50px;right:10px;z-index:99999;background-color:%23f9f9f9;border:1px%20solid%20%23ccc;padding:10px;border-radius:4px;font-family:sans-serif;font-size:12px;line-height:1.5;box-shadow:0%202px%205px%20rgba(0,0,0,0.2);}%23${e}p{margin:0;}%23${e}.legend-item{display:flex;align-items:center;margin-bottom:5px;}%23${e}.legend-color-box{width:15px;height:15px;margin-right:8px;border:1px%20solid%20%23aaa;}`,document.head.appendChild(a)}})(),function(){let%20c=document.getElementById(d);c||(c=document.createElement(%22button%22),c.id=d,c.textContent=%22Toggle%20Print%20Media%20Highlights%22,document.body.appendChild(c));let%20f=document.getElementById(e);f||(f=document.createElement(%22div%22),f.id=e,f.innerHTML=`%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:limegreen;%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:dodgerblue;%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:darkviolet;%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class=%22legend-item%22%3E%3Cdiv%20class=%22legend-color-box%22%20style=%22background-color:red;%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E`,document.body.appendChild(f)),f.style.display=%22none%22;let%20g=!1;c.onclick=function(){g%3F(a(),c.textContent=%22Toggle%20Print%20Media%20Highlights(Off)%22,f.style.display=%22none%22):(b(),c.textContent=%22Toggle%20Print%20Media%20Highlights(On)%22,f.style.display=%22block%22),g=!g}}(),a(),document.getElementById(d).textContent=%22Toggle%20Print%20Media%20Highlights(Off)%22;const%20j=document.getElementById(e);j%26%26(j.style.display=%22none%22)})()}();
+javascript:(function(){const n="print-media-highlight-style",a="print-media-highlight-toggle-button",e="print-media-highlight-legend",i="print-media-highlight-print-only",l="print-media-highlight-hidden-print",t="print-media-highlight-css-change",o="print-media-highlight-general";function s(){if(document.getElementById(n))return;const a=document.createElement("style");a.id=n,a.textContent="."+o+"{outline:3px solid red !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px #f00 !important;}."+i+"{outline:3px solid limegreen !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px limegreen !important;}."+l+"{outline:3px solid dodgerblue !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px dodgerblue !important;}."+t+"{outline:3px solid darkviolet !important;box-shadow:0 0 0 2px #fff,0 0 8px 2px darkviolet !important;}#"+a+"{position:fixed;top:10px;right:10px;z-index:99999;background-color:#333;color:white;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity 0.3s;}#"+a+":hover{opacity:1;}#"+e+"{position:fixed;top:50px;right:10px;z-index:99999;background-color:#f9f9f9;border:1px solid #ccc;padding:10px;border-radius:4px;font-family:sans-serif;font-size:12px;line-height:1.5;box-shadow:0 2px 5px rgba(0,0,0,0.2);}#"+e+" p{margin:0;}#"+e+" .legend-item{display:flex;align-items:center;margin-bottom:5px;}#"+e+" .legend-color-box{width:15px;height:15px;margin-right:8px;border:1px solid #aaa;}",document.head.appendChild(a)}function d(){document.querySelectorAll("."+o+",."+i+",."+l+",."+t).forEach(function(n){n.classList.remove(o,i,l,t)})}function c(){d();const n=new Map;function a(e){try{e.cssRules&&Array.from(e.cssRules).forEach(function(e){e.type===CSSRule.MEDIA_RULE&&e.media.mediaText.includes("print")?Array.from(e.cssRules).forEach(function(e){e.selectorText&&(n.has(e.selectorText)||n.set(e.selectorText,[]),n.get(e.selectorText).push(e))}):e.type===CSSRule.IMPORT_RULE&&a(e.styleSheet)})}catch(n){}}Array.from(document.styleSheets).forEach(function(n){a(n)}),document.querySelectorAll("*").forEach(function(a){const e=window.getComputedStyle(a),o=e.getPropertyValue("display");let s=!1,d=!1,c=!1;if(0!==n.size)for(const h of n.keys())try{if(a.matches(h)){s=!0;const p=n.get(h),r=p.find(n=>n.style&&n.style.display);if(r){const n=r.style.display;"none"===o&&"none"!==n?(a.classList.add(i),d=!0):"none"!==o&&"none"===n&&(a.classList.add(l),d=!0)}for(const n of p){if(n.style)for(let i=0;i<n.style.length;i++){const l=n.style[i],t=n.style.getPropertyValue(l),o=e.getPropertyValue(l);if("display"!==l&&t!==o){c=!0;break}}if(c)break}}}catch(n){}s&&!d&&!c&&a.classList.add(o),c&&a.classList.add(t)})}function h(){let n=document.getElementById(a);n||(n=document.createElement("button"),n.id=a,n.textContent="Toggle Print Media Highlights",document.body.appendChild(n));let i=document.getElementById(e);i||(i=document.createElement("div"),i.id=e,i.innerHTML='<div class="legend-item"><div class="legend-color-box" style="background-color:limegreen;"></div><p>Visible only in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:dodgerblue;"></div><p>Hidden in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:darkviolet;"></div><p>CSS Change in Print</p></div><div class="legend-item"><div class="legend-color-box" style="background-color:red;"></div><p>General Print Style</p></div>',document.body.appendChild(i)),i.style.display="none";let l=!1;n.onclick=function(){l?(d(),n.textContent="Toggle Print Media Highlights (Off)",i.style.display="none"):(c(),n.textContent="Toggle Print Media Highlights (On)",i.style.display="block"),l=!l}}s(),h(),d(),document.getElementById(a).textContent="Toggle Print Media Highlights (Off)";const p=document.getElementById(e);p&&p.style.display==="block"&& (p.style.display="none");})();
 ```
 
 3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
