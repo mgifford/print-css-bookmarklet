@@ -13,7 +13,8 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 <a href="javascript:(function(){window.print();})();">Test</a>
 
-1. Drag and Drop Installation:  
+1. Drag and Drop Installation:
+
 <a href="javascript:(function() {
         const styleId = 'print-highlight-bookmarklet-style';
         const buttonId = 'print-highlight-bookmarklet-toggle-button';
@@ -164,7 +165,6 @@ A simple browser bookmarklet to help developers and designers quickly identify e
         document.getElementById(buttonId).textContent = 'Toggle Print Highlights (Off)';
 
     })();)" title="Drag this to your bookmarks bar!">Print Highlighter</a>
-
 
    * **Tip for Mobile/Manual Install:** If the drag-and-drop doesn't work (e.g., on some mobile browsers or if you prefer manual setup), follow these steps:  
      1. Create a new bookmark in your browser.  
