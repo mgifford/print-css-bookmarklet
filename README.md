@@ -168,7 +168,8 @@ A simple browser bookmarklet to help developers and designers quickly identify e
      1. Create a new bookmark in your browser.  
      2. Name it "Print Highlighter" (or anything you like).  
      3. For the URL/Location, copy the *entire* JavaScript code from the javascript: prefix below and paste it into the URL field:  
-        JavaScript  
+        
+```
         javascript:(function() {  
             const styleId \= 'print-highlight-bookmarklet-style';  
             const buttonId \= 'print-highlight-bookmarklet-toggle-button';  
