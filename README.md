@@ -17,6 +17,31 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 <a href="javascript:(function(){const styleId='print-highlight-bookmarklet-style',buttonId='print-highlight-bookmarklet-toggle-button',hiddenClass='print-hidden-highlight',alteredClass='print-altered-highlight';function createHighlightStyles(){if(document.getElementById(styleId))return;const style=document.createElement('style');style.id=styleId;style.textContent='.'+hiddenClass+'{background-color:#f0f0f0 !important;border:1px dashed #999 !important;outline:2px dashed #999 !important;}.'+alteredClass+'{background-color:#fffacd !important;border:1px solid #da0 !important;outline:2px solid #da0 !important;}#'+buttonId+'{position:fixed;top:10px;right:10px;z-index:99999;background-color:#333;color:white;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity 0.3s;}#'+buttonId+':hover{opacity:1;}';document.head.appendChild(style);}function removeHighlightStyles(){const style=document.getElementById(styleId);if(style){style.remove();}}function removeHighlightClasses(){document.querySelectorAll('.'+hiddenClass+',.'+alteredClass).forEach(function(el){el.classList.remove(hiddenClass,alteredClass);});}function applyHighlighting(){const printRules=[];function extractRules(sheet){try{if(sheet.cssRules){Array.from(sheet.cssRules).forEach(function(rule){if(rule.type===CSSRule.MEDIA_RULE&&rule.media.mediaText.includes('print')){Array.from(rule.cssRules).forEach(function(printRule){printRules.push(printRule);});}else if(rule.type===CSSRule.STYLE_RULE){if(sheet.media&&sheet.media.mediaText.includes('print')){printRules.push(rule);}}else if(rule.type===CSSRule.IMPORT_RULE){extractRules(rule.styleSheet);}});}}catch(e){console.warn('Could not read stylesheet:',sheet.href||'inline style',e);}}Array.from(document.styleSheets).forEach(function(sheet){extractRules(sheet);});printRules.forEach(function(rule){if(rule.selectorText){try{document.querySelectorAll(rule.selectorText).forEach(function(el){if(rule.style.display==='none'){el.classList.add(hiddenClass);}else{if(Object.keys(rule.style).length>0){el.classList.add(alteredClass);}}});}catch(e){console.warn('Invalid selector:',rule.selectorText,e);}}});const commonHiddenSelectors=['nav','.navbar','#header','#footer','.sidebar','.menu','.ad','.ads','.no-print','[data-print=hidden]'];commonHiddenSelectors.forEach(function(selector){try{document.querySelectorAll(selector).forEach(function(el){if(!el.classList.contains(hiddenClass)&&getComputedStyle(el).display==='none'){el.classList.add(hiddenClass);}});}catch(e){console.warn('Invalid common hidden selector:',selector,e);}});}function setupToggleButton(){let button=document.getElementById(buttonId);if(!button){button=document.createElement('button');button.id=buttonId;button.textContent='Toggle Print Highlights';document.body.appendChild(button);let isActive=false;button.onclick=function(){if(isActive){removeHighlightClasses();button.textContent='Toggle Print Highlights (Off)';}else{applyHighlighting();button.textContent='Toggle Print Highlights (On)';}isActive=!isActive;};}}createHighlightStyles();setupToggleButton();removeHighlightClasses();document.getElementById(buttonId).textContent='Toggle Print Highlights (Off)';})();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
 
+## 🖨️ Live Print CSS Demo
+
+<style>
+  .no-print-demo { color: #b00; font-weight: bold; }
+  .print-different-demo { color: #333; font-size: 1.2em; }
+  .print-only-demo { display: none; }
+  @media print {
+    .no-print-demo { display: none !important; }
+    .print-different-demo {
+      color: #007700 !important;
+      font-size: 2em !important;
+      font-weight: bold !important;
+    }
+    .print-only-demo {
+      display: block !important;
+      color: #b00 !important;
+      font-style: italic !important;
+      font-size: 1.5em !important;
+    }
+  }
+</style>
+
+<div class="no-print-demo">This message will NOT appear when you print this page.</div>
+<div class="print-different-demo">This text changes color and size when printed.</div>
+<div class="print-only-demo">This message ONLY appears in print view.</div>
 
    * **Tip for Mobile/Manual Install:** If the drag-and-drop doesn't work (e.g., on some mobile browsers or if you prefer manual setup), follow these steps:  
      1. Create a new bookmark in your browser.  
@@ -60,31 +85,5 @@ Feel free to suggest improvements or report issues\! This bookmarklet is a usefu
 
 Now, when someone visits your GitHub repository, they'll see this README, and they can easily drag the "Print Highlighter" link to their bookmarks bar!
 
-
-## 🖨️ Live Print CSS Demo
-
-<style>
-  .no-print-demo { color: #b00; font-weight: bold; }
-  .print-different-demo { color: #333; font-size: 1.2em; }
-  .print-only-demo { display: none; }
-  @media print {
-    .no-print-demo { display: none !important; }
-    .print-different-demo {
-      color: #007700 !important;
-      font-size: 2em !important;
-      font-weight: bold !important;
-    }
-    .print-only-demo {
-      display: block !important;
-      color: #b00 !important;
-      font-style: italic !important;
-      font-size: 1.5em !important;
-    }
-  }
-</style>
-
-<div class="no-print-demo">This message will NOT appear when you print this page.</div>
-<div class="print-different-demo">This text changes color and size when printed.</div>
-<div class="print-only-demo">This message ONLY appears in print view.</div>
 
 <p style="font-size:0.95em;color:#666;">Tip: Use your browser's <b>Print Preview</b> to see the effect of these styles.</p>
