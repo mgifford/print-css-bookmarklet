@@ -2,6 +2,23 @@
 
 A simple browser bookmarklet to help developers and designers quickly identify elements on a webpage that are affected by CSS print media queries. Ever wonder what disappears or changes when your page goes to print? This tool gives you a quick visual audit\!
 
+
+### Drag & Drop
+
+**Drag this button to your bookmarks bar:**
+
+<a href="javascript:(function(){alert('hi');})();">Print Highlighter</a>
+
+---
+
+### If the button above does not work:
+
+1. Copy the code below:
+    ```javascript
+    javascript:(function(){alert('hi');})();
+    ```
+2. Create a new bookmark and paste the code as the URL.
+
 ## **✨ Features**
 
 * **Highlight Hidden Elements:** Marks elements that are likely hidden (display: none) in print view with a light gray background and dashed border.  
