@@ -138,24 +138,26 @@ A simple browser bookmarklet to help developers and designers quickly identify e
   }
 </style>
 
-    <div class="demo-section">
-      <h2>Hidden in Print</h2>
-      <div class="no-print-demo"> This element has `display: none` in `@media print`. It will be highlighted with a **blue border**. In normal view, it's red and bold. </div>
-      <p>This is a regular paragraph that might change its font size in print due to a general `p` rule.</p>
-    </div>
-    <div class="demo-section">
-      <h2>CSS Changes in Print</h2>
-      <div class="print-different-demo"> This element has several CSS properties that change in `@media print` (color, font-size, text-decoration, border). It will be highlighted with a **purple border**. In normal view, it's dark gray and underlined. </div>
-    </div>
-    <div class="demo-section">
-      <h2>Visible Only in Print</h2>
-      <div class="print-only-demo"> This element has `display: none` by default, but `display: block` in `@media print`. It will be highlighted with a **limegreen border**. You should only see this text when you activate the print highlights. </div>
-    </div>
-    <div class="demo-section">
-      <h2>General Print Style</h2>
-      <div class="general-print-style-demo"> This element has some of its general styles (like padding, background, border) changed in the print stylesheet, but no display changes or very prominent CSS changes that triggered other categories. It will be highlighted with a **red border**. </div>
-    </div>
+<div class="demo-section">
+  <h2>Hidden in Print</h2>
+  <div class="no-print-demo"> This element has `display: none` in `@media print`. It will be highlighted with a **blue border**. In normal view, it's red and bold. </div>
+  <p>This is a regular paragraph that might change its font size in print due to a general `p` rule.</p>
+</div>
 
+<div class="demo-section">
+  <h2>CSS Changes in Print</h2>
+  <div class="print-different-demo"> This element has several CSS properties that change in `@media print` (color, font-size, text-decoration, border). It will be highlighted with a **purple border**. In normal view, it's dark gray and underlined. </div>
+</div>
+
+<div class="demo-section">
+  <h2>Visible Only in Print</h2>
+  <div class="print-only-demo"> This element has `display: none` by default, but `display: block` in `@media print`. It will be highlighted with a **limegreen border**. You should only see this text when you activate the print highlights. </div>
+</div>
+
+<div class="demo-section">
+  <h2>General Print Style</h2>
+  <div class="general-print-style-demo"> This element has some of its general styles (like padding, background, border) changed in the print stylesheet, but no display changes or very prominent CSS changes that triggered other categories. It will be highlighted with a **red border**. </div>
+</div>
 
 <div class="no-print-demo">This message will NOT appear when you print this page.</div>
 <div class="print-different-demo">This text changes color and size when printed.</div>
