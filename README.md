@@ -9,15 +9,6 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
 <a href="javascript:(function(){alert('hi');})();">Print Highlighter</a>
 
----
-
-### If the button above does not work:
-
-1. Copy the code below:
-    ```javascript
-    javascript:(function(){alert('hi');})();
-    ```
-2. Create a new bookmark and paste the code as the URL.
 
 ## **✨ Features**
 
@@ -179,7 +170,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
         removeHighlightClasses();
         document.getElementById(buttonId).textContent = 'Toggle Print Highlights (Off)';
 
-    })" title="Drag this to your bookmarks bar!">Print Highlighter</a>
+    })();" title="Drag this to your bookmarks bar!">Print Highlighter</a>
 
    * **Tip for Mobile/Manual Install:** If the drag-and-drop doesn't work (e.g., on some mobile browsers or if you prefer manual setup), follow these steps:  
      1. Create a new bookmark in your browser.  
