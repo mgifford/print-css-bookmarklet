@@ -9,7 +9,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 * **Toggle On/Off:** A convenient button appears on the page to easily switch the highlighting on and off without reloading.  
 * **Easy Installation:** Drag-and-drop the bookmarklet directly into your browser's favorites/bookmarks bar.
 
-## **🚀 How to Use**
+## **🚀 How to Use** <a href="javascript:(function(){window.print();})();">Test</a>
 
 1. Drag and Drop Installation:  
 <a href="javascript:(function() {
