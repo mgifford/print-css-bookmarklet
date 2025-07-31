@@ -167,6 +167,155 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 javascript:(function()%7Bconst%20STYLE_ID%3D%22print-media-highlight-style%22%2CTOGGLE_ID%3D%22print-media-highlight-toggle-button%22%2CLEGEND_ID%3D%22print-media-highlight-legend%22%3Bfunction%20markScreenHiddenElementsWithMediaOnly(printRules%2CscreenRules)%7Bdocument.querySelectorAll(%22*%22).forEach(el%3D%3E%7Bconst%20style%3DgetComputedStyle(el)%3Bif(style.display!%3D%3D%22none%22)return%3Bfunction%20matchesMediaRules(rulesMap)%7Bfor(const%20%5Bselector%2Crules%5D%20of%20rulesMap.entries())%7Btry%7Bif(!el.matches(selector))continue%3Bfor(const%20rule%20of%20rules)%7Bif(rule.style.getPropertyValue(%22display%22)%3D%3D%3D%22none%22)return%20true%7D%7Dcatch(e)%7B%7D%7Dreturn%20false%7Dif(matchesMediaRules(printRules)%7C%7CmatchesMediaRules(screenRules))%7Bel.style.setProperty(%22display%22%2C%22block%22%2C%22important%22)%3Bel.classList.add(%22print-media-highlight-screen-hidden%22)%3Bel.setAttribute(%22data-screen-hidden%22%2C%22display%3Anone%20(@media)%22)%3Bel.title%3D%22display%3Anone%20(@media)%22%7D%7D)%7Dfunction%20clearHighlights()%7Bdocument.querySelectorAll(%22.print-media-highlight-general%2C.print-media-highlight-print-only%2C.print-media-highlight-hidden-print%2C.print-media-highlight-css-change%2C.print-media-highlight-screen-hidden%22).forEach(el%3D%3E%7Bel.classList.remove(%22print-media-highlight-general%22%2C%22print-media-highlight-print-only%22%2C%22print-media-highlight-hidden-print%22%2C%22print-media-highlight-css-change%22%2C%22print-media-highlight-screen-hidden%22)%3Bel.removeAttribute(%22data-print-css%22)%3Bel.removeAttribute(%22data-screen-hidden%22)%3Bel.style.removeProperty(%22display%22)%7D)%7Dfunction%20extractCSSFromRule(rule)%7Blet%20styles%3D%5B%5D%3Bfor(let%20i%3D0%3Bi%3Crule.style.length%3Bi++)%7Blet%20prop%3Drule.style%5Bi%5D%3Blet%20val%3Drule.style.getPropertyValue(prop)%3Bstyles.push(%60%24%7Bprop%7D%3A%24%7Bval%7D%60)%7Dreturn%20styles.join(%22%3B%20%22)%7Dfunction%20applyHighlights()%7Bconst%20printRules%3Dnew%20Map%2CscreenRules%3Dnew%20Map%3Bfunction%20collectRules(sheet)%7Btry%7Bif(sheet.cssRules)%7BArray.from(sheet.cssRules).forEach(rule%3D%3E%7Bif(rule.type%3D%3D%3DCSSRule.MEDIA_RULE)%7Bconst%20mt%3Drule.media.mediaText.toLowerCase()%3Bconst%20target%3Dmt.includes(%22print%22)%3FprintRules%3Amt.includes(%22screen%22)%3FscreenRules%3Anull%3Bif(!target)return%3BArray.from(rule.cssRules).forEach(innerRule%3D%3E%7Bif(innerRule.selectorText)%7Bif(!target.has(innerRule.selectorText))target.set(innerRule.selectorText%2C%5B%5D)%3Btarget.get(innerRule.selectorText).push(innerRule)%7D%7D)%7Delse%20if(rule.type%3D%3D%3DCSSRule.IMPORT_RULE)%7BcollectRules(rule.styleSheet)%7D%7D)%7D%7Dcatch(e)%7B%7D%7DArray.from(document.styleSheets).forEach(collectRules)%3Bdocument.querySelectorAll(%22*%22).forEach(el%3D%3E%7Bconst%20computed%3DgetComputedStyle(el)%2CdisplayNow%3Dcomputed.display%3Blet%20matchesPrint%3Dfalse%2Chidden%3Dfalse%2Cchanged%3Dfalse%3Bfor(const%20selector%20of%20printRules.keys())%7Btry%7Bif(el.matches(selector))%7BmatchesPrint%3Dtrue%3Bconst%20rules%3DprintRules.get(selector)%2Ccss%3D%5B%5D%3Brules.forEach(rule%3D%3E%7Bconst%20ruleDisplay%3Drule.style.getPropertyValue(%22display%22)%3Bif(ruleDisplay%3D%3D%3D%22none%22%26%26displayNow!%3D%3D%22none%22)%7Bel.classList.add(%22print-media-highlight-hidden-print%22)%3Bhidden%3Dtrue%7Delse%20if(ruleDisplay!%3D%3D%22none%22%26%26displayNow%3D%3D%22none%22)%7Bel.classList.add(%22print-media-highlight-print-only%22)%3Bhidden%3Dtrue%7Dfor(let%20i%3D0%3Bi%3Crule.style.length%3Bi++)%7Bconst%20prop%3Drule.style%5Bi%5D%2Cval%3Drule.style.getPropertyValue(prop)%3Bif(computed.getPropertyValue(prop)!%3D%3Dval)%7Bchanged%3Dtrue%3Bcss.push(%60%24%7Bprop%7D%3A%24%7Bval%7D%60)%7D%7D%7D)%3Bif(css.length)%7Bel.setAttribute(%22data-print-css%22%2Ccss.join(%22%3B%20%22))%3Bel.title%3D%22Print%20CSS%3A%20%22%2Bcss.join(%22%3B%20%22)%7D%7D%7Dcatch(e)%7B%7D%7Dif(matchesPrint%26%26!hidden%26%26!changed)el.classList.add(%22print-media-highlight-general%22)%3Bif(changed)el.classList.add(%22print-media-highlight-css-change%22)%7D)%3BmarkScreenHiddenElementsWithMediaOnly(printRules%2CscreenRules)%7Dfunction%20injectStyleAndLegend()%7Bif(!document.getElementById(STYLE_ID))%7Bconst%20style%3Ddocument.createElement(%22style%22)%3Bstyle.id%3DSTYLE_ID%3Bstyle.textContent%3D%22.print-media-highlight-general%7Boutline%3A3px%20solid%20red!important%7D.print-media-highlight-print-only%7Boutline%3A3px%20solid%20limegreen!important%7D.print-media-highlight-hidden-print%7Boutline%3A3px%20solid%20dodgerblue!important%7D.print-media-highlight-css-change%7Boutline%3A3px%20solid%20darkviolet!important%7D.print-media-highlight-screen-hidden%7Boutline%3A3px%20solid%20orange!important%7D%5Bdata-print-css%5D%3A%3Aafter%7Bcontent%3Aattr(data-print-css)%3Bdisplay%3Ablock%3Bfont-size%3A10px%3Bbackground%3A%23fff6e6%3Bcolor%3A%23333%3Bpadding%3A2px%204px%3Bmargin-top%3A2px%3Bborder%3A1px%20dashed%20%23ccc%3Bwhite-space%3Apre-wrap%7D%5Bdata-screen-hidden%5D%3A%3Abefore%7Bcontent%3Aattr(data-screen-hidden)%3Bdisplay%3Ablock%3Bfont-size%3A10px%3Bbackground%3A%23ffe%3Bborder%3A1px%20dashed%20orange%3Bpadding%3A2px%3Bmargin-bottom%3A2px%3Bcolor%3A%23c60%7D%23print-media-highlight-toggle-button%7Bposition%3Afixed%3Btop%3A10px%3Bright%3A10px%3Bz-index%3A99999%3Bbackground-color%3A%23333%3Bcolor%3Awhite%3Bborder%3Anone%3Bpadding%3A8px%2012px%3Bborder-radius%3A4px%3Bcursor%3Apointer%3Bfont-family%3Asans-serif%3Bfont-size%3A14px%3Bopacity%3A0.8%3Btransition%3Aopacity%200.3s%7D%23print-media-highlight-toggle-button%3Ahover%7Bopacity%3A1%7D%23print-media-highlight-legend%7Bposition%3Afixed%3Btop%3A50px%3Bright%3A10px%3Bz-index%3A99999%3Bbackground-color%3A%23f9f9f9%3Bborder%3A1px%20solid%20%23ccc%3Bpadding%3A10px%3Bborder-radius%3A4px%3Bfont-family%3Asans-serif%3Bfont-size%3A12px%3Bline-height%3A1.5%3Bbox-shadow%3A0%202px%205px%20rgba(0%2C0%2C0%2C0.2)%7D%23print-media-highlight-legend%20p%7Bmargin%3A0%7D%23print-media-highlight-legend%20.legend-item%7Bdisplay%3Aflex%3Balign-items%3Acenter%3Bmargin-bottom%3A5px%7D%23print-media-highlight-legend%20.legend-color-box%7Bwidth%3A15px%3Bheight%3A15px%3Bmargin-right%3A8px%3Bborder%3A1px%20solid%20%23aaa%7D%22%3Bdocument.head.appendChild(style)%7Dif(!document.getElementById(TOGGLE_ID))%7Bconst%20toggle%3Ddocument.createElement(%22button%22)%3Btoggle.id%3DTOGGLE_ID%3Btoggle.textContent%3D%22Toggle%20Print%20Media%20Highlights%22%3Bdocument.body.appendChild(toggle)%7Dif(!document.getElementById(LEGEND_ID))%7Bconst%20legend%3Ddocument.createElement(%22div%22)%3Blegend.id%3DLEGEND_ID%3Blegend.innerHTML%3D%22%3Cdiv%20class%3D%5C%22legend-item%5C%22%3E%3Cdiv%20class%3D%5C%22legend-color-box%5C%22%20style%3D%5C%22background-color%3Alimegreen%3B%5C%22%3E%3C/div%3E%3Cp%3EVisible%20only%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class%3D%5C%22legend-item%5C%22%3E%3Cdiv%20class%3D%5C%22legend-color-box%5C%22%20style%3D%5C%22background-color%3Adodgerblue%3B%5C%22%3E%3C/div%3E%3Cp%3EHidden%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class%3D%5C%22legend-item%5C%22%3E%3Cdiv%20class%3D%5C%22legend-color-box%5C%22%20style%3D%5C%22background-color%3Adarkviolet%3B%5C%22%3E%3C/div%3E%3Cp%3ECSS%20Change%20in%20Print%3C/p%3E%3C/div%3E%3Cdiv%20class%3D%5C%22legend-item%5C%22%3E%3Cdiv%20class%3D%5C%22legend-color-box%5C%22%20style%3D%5C%22background-color%3Ared%3B%5C%22%3E%3C/div%3E%3Cp%3EGeneral%20Print%20Style%3C/p%3E%3C/div%3E%22%3Blegend.style.display%3D%22none%22%3Bdocument.body.appendChild(legend)%7D%7DinjectStyleAndLegend()%3Blet%20state%3Dfalse%3Bdocument.getElementById(TOGGLE_ID).onclick%3Dfunction()%7Bstate%3D!state%3Bstate%3F(applyHighlights()%2Cthis.textContent%3D%22Toggle%20Print%20Media%20Highlights%20(On)%22%2Cdocument.getElementById(LEGEND_ID).style.display%3D%22block%22)%3A(clearHighlights()%2Cthis.textContent%3D%22Toggle%20Print%20Media%20Highlights%20(Off)%22%2Cdocument.getElementById(LEGEND_ID).style.display%3D%22none%22)%7D%7D)();
 ```
 
+```
+javascript: (function() {
+    const STYLE_ID = "print-media-highlight-style",
+        TOGGLE_ID = "print-media-highlight-toggle-button",
+        LEGEND_ID = "print-media-highlight-legend";
+
+    function markScreenHiddenElementsWithMediaOnly(printRules, screenRules) {
+        document.querySelectorAll("*").forEach(el => {
+            const style = getComputedStyle(el);
+            if (style.display !== "none") return;
+
+            function matchesMediaRules(rulesMap) {
+                for (const [selector, rules] of rulesMap.entries()) {
+                    try {
+                        if (!el.matches(selector)) continue;
+                        for (const rule of rules) {
+                            if (rule.style.getPropertyValue("display") === "none") return true
+                        }
+                    } catch (e) {}
+                }
+                return false
+            }
+            if (matchesMediaRules(printRules) || matchesMediaRules(screenRules)) {
+                el.style.setProperty("display", "block", "important");
+                el.classList.add("print-media-highlight-screen-hidden");
+                el.setAttribute("data-screen-hidden", "display:none (@media)");
+                el.title = "display:none (@media)"
+            }
+        })
+    }
+
+    function clearHighlights() {
+        document.querySelectorAll(".print-media-highlight-general,.print-media-highlight-print-only,.print-media-highlight-hidden-print,.print-media-highlight-css-change,.print-media-highlight-screen-hidden").forEach(el => {
+            el.classList.remove("print-media-highlight-general", "print-media-highlight-print-only", "print-media-highlight-hidden-print", "print-media-highlight-css-change", "print-media-highlight-screen-hidden");
+            el.removeAttribute("data-print-css");
+            el.removeAttribute("data-screen-hidden");
+            el.style.removeProperty("display")
+        })
+    }
+
+    function extractCSSFromRule(rule) {
+        let styles = [];
+        for (let i = 0; i < rule.style.length; i) {
+            let prop = rule.style[i];
+            let val = rule.style.getPropertyValue(prop);
+            styles.push(`${prop}:${val}`)
+        }
+        return styles.join("; ")
+    }
+
+    function applyHighlights() {
+        const printRules = new Map,
+            screenRules = new Map;
+
+        function collectRules(sheet) {
+            try {
+                if (sheet.cssRules) {
+                    Array.from(sheet.cssRules).forEach(rule => {
+                        if (rule.type === CSSRule.MEDIA_RULE) {
+                            const mt = rule.media.mediaText.toLowerCase();
+                            const target = mt.includes("print") ? printRules : mt.includes("screen") ? screenRules : null;
+                            if (!target) return;
+                            Array.from(rule.cssRules).forEach(innerRule => {
+                                if (innerRule.selectorText) {
+                                    if (!target.has(innerRule.selectorText)) target.set(innerRule.selectorText, []);
+                                    target.get(innerRule.selectorText).push(innerRule)
+                                }
+                            })
+                        } else if (rule.type === CSSRule.IMPORT_RULE) {
+                            collectRules(rule.styleSheet)
+                        }
+                    })
+                }
+            } catch (e) {}
+        }
+        Array.from(document.styleSheets).forEach(collectRules);
+        document.querySelectorAll("*").forEach(el => {
+            const computed = getComputedStyle(el),
+                displayNow = computed.display;
+            let matchesPrint = false,
+                hidden = false,
+                changed = false;
+            for (const selector of printRules.keys()) {
+                try {
+                    if (el.matches(selector)) {
+                        matchesPrint = true;
+                        const rules = printRules.get(selector),
+                            css = [];
+                        rules.forEach(rule => {
+                            const ruleDisplay = rule.style.getPropertyValue("display");
+                            if (ruleDisplay === "none" && displayNow !== "none") {
+                                el.classList.add("print-media-highlight-hidden-print");
+                                hidden = true
+                            } else if (ruleDisplay !== "none" && displayNow == "none") {
+                                el.classList.add("print-media-highlight-print-only");
+                                hidden = true
+                            }
+                            for (let i = 0; i < rule.style.length; i) {
+                                const prop = rule.style[i],
+                                    val = rule.style.getPropertyValue(prop);
+                                if (computed.getPropertyValue(prop) !== val) {
+                                    changed = true;
+                                    css.push(`${prop}:${val}`)
+                                }
+                            }
+                        });
+                        if (css.length) {
+                            el.setAttribute("data-print-css", css.join("; "));
+                            el.title = "Print CSS: " + css.join("; ")
+                        }
+                    }
+                } catch (e) {}
+            }
+            if (matchesPrint && !hidden && !changed) el.classList.add("print-media-highlight-general");
+            if (changed) el.classList.add("print-media-highlight-css-change")
+        });
+        markScreenHiddenElementsWithMediaOnly(printRules, screenRules)
+    }
+
+    function injectStyleAndLegend() {
+        if (!document.getElementById(STYLE_ID)) {
+            const style = document.createElement("style");
+            style.id = STYLE_ID;
+            style.textContent = ".print-media-highlight-general{outline:3px solid red!important}.print-media-highlight-print-only{outline:3px solid limegreen!important}.print-media-highlight-hidden-print{outline:3px solid dodgerblue!important}.print-media-highlight-css-change{outline:3px solid darkviolet!important}.print-media-highlight-screen-hidden{outline:3px solid orange!important}[data-print-css]::after{content:attr(data-print-css);display:block;font-size:10px;background:#fff6e6;color:#333;padding:2px 4px;margin-top:2px;border:1px dashed #ccc;white-space:pre-wrap}[data-screen-hidden]::before{content:attr(data-screen-hidden);display:block;font-size:10px;background:#ffe;border:1px dashed orange;padding:2px;margin-bottom:2px;color:#c60}#print-media-highlight-toggle-button{position:fixed;top:10px;right:10px;z-index:99999;background-color:#333;color:white;border:none;padding:8px 12px;border-radius:4px;cursor:pointer;font-family:sans-serif;font-size:14px;opacity:0.8;transition:opacity 0.3s}#print-media-highlight-toggle-button:hover{opacity:1}#print-media-highlight-legend{position:fixed;top:50px;right:10px;z-index:99999;background-color:#f9f9f9;border:1px solid #ccc;padding:10px;border-radius:4px;font-family:sans-serif;font-size:12px;line-height:1.5;box-shadow:0 2px 5px rgba(0,0,0,0.2)}#print-media-highlight-legend p{margin:0}#print-media-highlight-legend .legend-item{display:flex;align-items:center;margin-bottom:5px}#print-media-highlight-legend .legend-color-box{width:15px;height:15px;margin-right:8px;border:1px solid #aaa}";
+            document.head.appendChild(style)
+        }
+        if (!document.getElementById(TOGGLE_ID)) {
+            const toggle = document.createElement("button");
+            toggle.id = TOGGLE_ID;
+            toggle.textContent = "Toggle Print Media Highlights";
+            document.body.appendChild(toggle)
+        }
+        if (!document.getElementById(LEGEND_ID)) {
+            const legend = document.createElement("div");
+            legend.id = LEGEND_ID;
+            legend.innerHTML = "<div class=\"legend-item\"><div class=\"legend-color-box\" style=\"background-color:limegreen;\"></div><p>Visible only in Print</p></div><div class=\"legend-item\"><div class=\"legend-color-box\" style=\"background-color:dodgerblue;\"></div><p>Hidden in Print</p></div><div class=\"legend-item\"><div class=\"legend-color-box\" style=\"background-color:darkviolet;\"></div><p>CSS Change in Print</p></div><div class=\"legend-item\"><div class=\"legend-color-box\" style=\"background-color:red;\"></div><p>General Print Style</p></div>";
+            legend.style.display = "none";
+            document.body.appendChild(legend)
+        }
+    }
+    injectStyleAndLegend();
+    let state = false;
+    document.getElementById(TOGGLE_ID).onclick = function() {
+        state = !state;
+        state ? (applyHighlights(), this.textContent = "Toggle Print Media Highlights (On)", document.getElementById(LEGEND_ID).style.display = "block") : (clearHighlights(), this.textContent = "Toggle Print Media Highlights (Off)", document.getElementById(LEGEND_ID).style.display = "none")
+    }
+})();
+```
+
 3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
 4. **Toggle:** A button will appear in the top-right corner of the page. Click it to activate the highlighting. Click it again to turn it off.
 
