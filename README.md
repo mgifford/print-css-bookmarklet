@@ -171,7 +171,7 @@ javascript:(function()%7Bconst%20STYLE_ID%3D%22print-media-highlight-style%22%2C
 
 # Readable Version
 
-```
+```javascript
 javascript: (function() {
     const STYLE_ID = "print-media-highlight-style",
         TOGGLE_ID = "print-media-highlight-toggle-button",
