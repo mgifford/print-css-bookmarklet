@@ -109,70 +109,71 @@
         </div>
     </section>
 
-    <section>
-        <h2>5. Image Filtering</h2>
-        <p>Apply various CSS3 image filters for print optimization. The filters are applied by adding the respective class to the `<img>` tag.</p>
-        <div class="demo-box">
-            <p>Original Image:</p>
-            <img src="https://via.placeholder.com/150/F0F0F0/000000?text=Original" alt="Original Image">
+<section>
+    <h2>5. Image Filtering</h2>
+    <p>Apply various CSS3 image filters for print optimization. The filters are applied by adding the respective class to the `<img>` tag.</p>
+    <div class="demo-box">
+        <p>Original Image:</p>
+        <img src="https://placehold.co/150x150/F0F0F0/000000?text=Original" alt="Original Image">
 
-            <p>Blur Filter (`.blur`):</p>
-            <img class="blur" src="https://via.placeholder.com/150/F0F0F0/000000?text=Blur" alt="Blurred Image">
+        <p>Blur Filter (`.blur`):</p>
+        <img class="blur" src="https://placehold.co/150x150/F0F0F0/000000?text=Blur" alt="Blurred Image">
 
-            <p>Brightness Filter (`.brightness`):</p>
-            <img class="brightness" src="https://via.placeholder.com/150/F0F0F0/000000?text=Brightness" alt="Brightness Image">
+        <p>Brightness Filter (`.brightness`):</p>
+        <img class="brightness" src="https://placehold.co/150x150/F0F0F0/000000?text=Brightness" alt="Brightness Image">
 
-            <p>Contrast Filter (`.contrast`):</p>
-            <img class="contrast" src="https://via.placeholder.com/150/F0F0F0/000000?text=Contrast" alt="Contrast Image">
+        <p>Contrast Filter (`.contrast`):</p>
+        <img class="contrast" src="https://placehold.co/150x150/F0F0F0/000000?text=Contrast" alt="Contrast Image">
 
-            <p>Invert Filter (`.invert`):</p>
-            <img class="invert" src="https://via.placeholder.com/150/F0F0F0/000000?text=Invert" alt="Invert Image">
+        <p>Invert Filter (`.invert`):</p>
+        <img class="invert" src="https://placehold.co/150x150/F0F0F0/000000?text=Invert" alt="Invert Image">
 
-            <p>Monochrome Filter (`.monochrome`):</p>
-            <img class="monochrome" src="https://via.placeholder.com/150/F0F0F0/000000?text=Monochrome" alt="Monochrome Image">
+        <p>Monochrome Filter (`.monochrome`):</p>
+        <img class="monochrome" src="https://placehold.co/150x150/F0F0F0/000000?text=Monochrome" alt="Monochrome Image">
 
-            <p>Saturate Filter (`.saturate`):</p>
-            <img class="saturate" src="https://via.placeholder.com/150/F0F0F0/000000?text=Saturate" alt="Saturate Image">
+        <p>Saturate Filter (`.saturate`):</p>
+        <img class="saturate" src="https://placehold.co/150x150/F0F0F0/000000?text=Saturate" alt="Saturate Image">
 
-            <p>Sepia Filter (`.sepia`):</p>
-            <img class="sepia" src="https://via.placeholder.com/150/F0F0F0/000000?text=Sepia" alt="Sepia Image">
+        <p>Sepia Filter (`.sepia`):</p>
+        <img class="sepia" src="https://placehold.co/150x150/F0F0F0/000000?text=Sepia" alt="Sepia Image">
 
-            <p>Hue Rotate 90deg (`.hue-90`):</p>
-            <img class="hue-90" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-90" alt="Hue 90deg Image">
+        <p>Hue Rotate 90deg (`.hue-90`):</p>
+        <img class="hue-90" src="https://placehold.co/150x150/F0F0F0/000000?text=Hue-90" alt="Hue 90deg Image">
 
-            <p>Hue Rotate 180deg (`.hue-180`):</p>
-            <img class="hue-180" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-180" alt="Hue 180deg Image">
+        <p>Hue Rotate 180deg (`.hue-180`):</p>
+        <img class="hue-180" src="https://placehold.co/150x150/F0F0F0/000000?text=Hue-180" alt="Hue 180deg Image">
 
-            <p>Hue Rotate 270deg (`.hue-270`):</p>
-            <img class="hue-270" src="https://via.placeholder.com/150/F0F0F0/000000?text=Hue-270" alt="Hue 270deg Image">
+        <p>Hue Rotate 270deg (`.hue-270`):</p>
+        <img class="hue-270" src="https://placehold.co/150x150/F0F0F0/000000?text=Hue-270" alt="Hue 270deg Image">
+    </div>
+</section>
+
+
+<section>
+    <h2>6. Print Single, Full-Page or Image Gallery</h2>
+    <p>This feature requires JavaScript to dynamically set `data-img` attributes on the `<html>` tag before printing. Here, we illustrate the concept.</p>
+    <div class="demo-box">
+        <h3>Individual Image Print (Simulated)</h3>
+        <p>If `html[data-img=individual]` is set, only content with `.individual` class would print.</p>
+        <img class="individual" src="https://placehold.co/300x300/F0F0F0/000000?text=Individual_Image" alt="Individual Image">
+
+        <h3>Full-Page Print (Simulated)</h3>
+        <p>If `html[data-img=full-page]` is set, only content with `.full-page` class would print.</p>
+        <div class="full-page" style="background-color: #ccffcc; padding: 20px;">
+            <p>This is content meant for a full-page print view.</p>
         </div>
-    </section>
 
-    <section>
-        <h2>6. Print Single, Full-Page or Image Gallery</h2>
-        <p>This feature requires JavaScript to dynamically set `data-img` attributes on the `<html>` tag before printing. Here, we illustrate the concept.</p>
-        <div class="demo-box">
-            <h3>Individual Image Print (Simulated)</h3>
-            <p>If `html[data-img=individual]` is set, only content with `.individual` class would print.</p>
-            <img class="individual" src="https://via.placeholder.com/300/F0F0F0/000000?text=Individual_Image" alt="Individual Image">
-
-            <h3>Full-Page Print (Simulated)</h3>
-            <p>If `html[data-img=full-page]` is set, only content with `.full-page` class would print.</p>
-            <div class="full-page" style="background-color: #ccffcc; padding: 20px;">
-                <p>This is content meant for a full-page print view.</p>
-            </div>
-
-            <h3>Gallery Print (Simulated)</h3>
-            <p>If `html[data-img=gallery]` is set, only content with `.gallery` class would print, potentially in a grid layout.</p>
-            <div class="gallery">
-                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_1" alt="Gallery Image 1">
-                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_2" alt="Gallery Image 2">
-                <img src="https://via.placeholder.com/100/F0F0F0/000000?text=Gal_3" alt="Gallery Image 3">
-            </div>
+        <h3>Gallery Print (Simulated)</h3>
+        <p>If `html[data-img=gallery]` is set, only content with `.gallery` class would print, potentially in a grid layout.</p>
+        <div class="gallery">
+            <img src="https://placehold.co/100x100/F0F0F0/000000?text=Gal_1" alt="Gallery Image 1">
+            <img src="https://placehold.co/100x100/F0F0F0/000000?text=Gal_2" alt="Gallery Image 2">
+            <img src="https://placehold.co/100x100/F0F0F0/000000?text=Gal_3" alt="Gallery Image 3">
         </div>
-        <p><em>Note: Actual functionality requires JS to toggle `data-img` on `<html>` before print.</em></p>
-    </section>
-
+    </div>
+    <p><em>Note: Actual functionality requires JS to toggle `data-img` on `<html>` before print.</em></p>
+</section>
+    
     <section>
         <h2>7. Dark Paper Mode (Simulated via `data-paper="dark"`)</h2>
         <p>When `data-paper="dark"` is set on the `<html>` tag, the print output aims to simulate printing on dark paper with light text.</p>
