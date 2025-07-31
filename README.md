@@ -1,17 +1,15 @@
-# **Print Highlighter Bookmarklet**
+# Print Highlighter Bookmarklet
 
-A simple browser bookmarklet to help developers and designers quickly identify elements on a webpage that are affected by CSS print media queries. Ever wonder what disappears or changes when your page goes to print? This tool gives you a quick visual audit!
+A simple browser bookmarklet to help developers and designers quickly identify elements on a webpage that are affected by CSS print media queries. Ever wonder what disappears or changes when your page goes to print? This tool gives you a quick visual audit! This is a useful tool to help designers and developer make it easier to reduce the number of PDFs they need to publish, because they can use properly formatted HTML instead. We should [avoid using PDFs](https://www.culturehive.co.uk/resources/10-things-about-pdf-content-and-why-you-should-avoid-it/) because they have been a [real problem for many web users](https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/) and have been for a [long time](https://www.nngroup.com/articles/pdf-unfit-for-human-consumption/) and it contributes to [climate change](https://accessibility.blog.gov.uk/2023/06/12/making-a-positive-change-pdf-to-html/). 
 
-### Drag & Drop
-
-## **✨ Features**
+## ✨ Features
 
 * **Highlight Hidden Elements:** Marks elements that are likely hidden (display: none) in print view with a light gray background and dashed border.  
 * **Highlight Altered Elements:** Marks elements that have other styles (like font size, color, etc.) changed in print view with a light yellow background and a solid orange border.  
 * **Toggle On/Off:** A convenient button appears on the page to easily switch the highlighting on and off without reloading.  
 * **Easy Installation:** Drag-and-drop the bookmarklet directly into your browser's favorites/bookmarks bar.
 
-## **🚀 How to Use** 
+## 🚀 How to Use
 
 1. Drag and Drop Installation:
 
@@ -323,13 +321,13 @@ javascript: (function() {
 3. **Activate:** Navigate to any webpage you want to analyze, then click the "Print Highlighter" bookmarklet in your bookmarks bar.  
 4. **Toggle:** A button will appear in the top-right corner of the page. Click it to activate the highlighting. Click it again to turn it off.
 
-## **⚠️ Limitations & Notes**
+## ⚠️ Limitations & Notes
 
 * This bookmarklet performs a heuristic analysis of CSS print rules. While effective for common cases, it's not a full print rendering engine. Complex print layouts or JavaScript-driven style changes might not be perfectly represented.  
 * It focuses on display: none for hidden elements and general style changes for altered elements based on parsed CSS rules.  
 * The highlighting is temporary and will disappear if you navigate away from the page or refresh it.
 
-## **🤝 Contributing**
+## 🤝 Contributing
 
 Feel free to suggest improvements or report issues! This bookmarklet is a useful tool, and contributions are welcome.
 
@@ -343,7 +341,7 @@ Feel free to suggest improvements or report issues! This bookmarklet is a useful
 - [Create the Bookmarklet](https://chriszarate.github.io/bookmarkleter)
 - [Beutify the JS](https://js-beautify.com/)
 
-**How to use this README on GitHub:**
+### How to use this README on GitHub:
 
 1. Create a new repository on GitHub (e.g., print-highlighter-bookmarklet).  
 2. In the repository, create a new file named README.md.  
