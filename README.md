@@ -336,12 +336,12 @@ Feel free to suggest improvements or report issues! This bookmarklet is a useful
 ## 📄 Learn More
 
 - [How does print CSS work? (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/print)
-- [h123 Bookmarklet Inspiration](https://hinderlingvolkart.github.io/h123/)
-- [https://chriszarate.github.io/bookmarkleter](https://chriszarate.github.io/bookmarkleter)
-- [https://printedcss.com/](https://printedcss.com/)
-- [https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/](https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/)
-- [https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102](https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102)
-- [https://www.terrific.tools/code/js-minify](https://www.terrific.tools/code/js-minify)
+- [Printedcss.com](https://printedcss.com/)
+- [How to on Print Friendly CSS](https://coderscratchpad.com/css-creating-print-friendly-styles-with-css/)
+- [Print Friendly CSS Guide](https://blog.devgenius.io/printing-with-style-using-css-for-printer-optimization-643f270eb102)
+- [Minimify the JS](https://www.terrific.tools/code/js-minify)
+- [Create the Bookmarklet](https://chriszarate.github.io/bookmarkleter)
+- [Beutify the JS](https://js-beautify.com/)
 
 **How to use this README on GitHub:**
 
