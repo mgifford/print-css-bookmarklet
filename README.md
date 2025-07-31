@@ -61,17 +61,7 @@ A simple browser bookmarklet to help developers and designers quickly identify e
     padding: 10px;
     margin-bottom: 10px;
   }
-
-  .print-only-demo {
-    display: none;
-    /* Hidden by default */
-    background-color: #e6ffe6;
-    /* Light green background */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 2px solid limegreen;
-  }
-
+  
   .general-print-style-demo {
     padding: 15px;
     margin-bottom: 10px;
@@ -80,6 +70,19 @@ A simple browser bookmarklet to help developers and designers quickly identify e
     border: 1px solid #ccc;
   }
 
+  /* --- Screen Media Query --- */
+  @media screen {
+    .print-only-demo {
+      display: none;
+      /* Hidden by default */
+      background-color: #e6ffe6;
+      /* Light green background */
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 2px solid limegreen;
+    }
+  }
+  
   /* --- Print Media Query --- */
   @media print {
 
