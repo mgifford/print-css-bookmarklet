@@ -82,9 +82,10 @@ A simple browser bookmarklet to help developers and designers quickly identify e
 
   /* --- Print Media Query --- */
   @media print {
+
     body {
+      /* Ensure default for white background and black text for print */
       background-color: #fff !important;
-      /* Ensure white background for print */
       color: #000 !important;
     }
 
@@ -131,12 +132,6 @@ A simple browser bookmarklet to help developers and designers quickly identify e
       /* Lighter background in print */
       border: 2px solid orange !important;
       /* New border style */
-    }
-
-    /* Example of a general rule affecting elements not explicitly called out */
-    p {
-      margin-bottom: 5px !important;
-      font-size: 0.9em !important;
     }
   }
 </style>
